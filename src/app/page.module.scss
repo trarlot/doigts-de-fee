@@ -1,0 +1,73 @@
+$green: #88d394;
+$dark-green: #1f5720;
+$pink: #f9877b;
+$light-pink: #fabdb5;
+$white: #faf9f6;
+
+@font-face {
+    font-family: 'Bethany';
+    src: url('../../public/assets/Bethany\ Script\ Dafont.ttf');
+}
+/***********config lenis*************/
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}
+/***********config lenis*************/
+.title {
+    padding: 30px 0;
+    margin: 0;
+}
+
+.main {
+    background-color: $white;
+    transition: 0.3s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+
+    .principal {
+        background-color: $white;
+        position: absolute;
+        z-index: 9;
+        width: 100%;
+        height: 100%;
+        opacity: 0%;
+        pointer-events: none;
+        position: absolute;
+        transition: 0.5s;
+    }
+    .line {
+        width: 1900px;
+        height: auto;
+        overflow: hidden;
+        top: 50vh;
+        position: absolute;
+        pointer-events: none;
+
+        path {
+            stroke: #ffe6e2 !important;
+            width: 100%;
+            z-index: 0;
+        }
+    }
+}

@@ -1,0 +1,88 @@
+@import '../../app/page.module';
+
+.salon {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 75px;
+    box-sizing: border-box;
+    background-attachment: fixed;
+    background-position: center;
+    background-image: url('/assets/background_jungle.png');
+    .title {
+        font-family: 'Bethany';
+        font-size: 20vw;
+        font-weight: normal;
+        text-align: start;
+        align-self: center;
+        position: relative;
+        padding: 13vw 0;
+        filter: invert(1);
+    }
+    #accueil {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        position: relative;
+        float: right;
+        .image {
+            width: 50%;
+            height: auto;
+            position: relative;
+        }
+        .after {
+            background-color: $white;
+            position: absolute;
+            width: 51%;
+            height: 101%;
+        }
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(6%, -80%);
+            width: 27%;
+            height: auto;
+
+            path {
+                fill: $dark-green !important;
+            }
+        }
+    }
+    #manucure {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+
+        .image {
+            width: 40%;
+            height: auto;
+        }
+        .after {
+            background-color: $white;
+            position: absolute;
+            width: 41%;
+            height: 101%;
+            transform-origin: bottom;
+        }
+    }
+    #pedicure {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        position: relative;
+        overflow: hidden;
+        .image {
+            width: 40%;
+            height: auto;
+        }
+        .after {
+            background-color: $white;
+            position: absolute;
+            width: 41%;
+            height: 101%;
+            transform-origin: bottom;
+        }
+    }
+}

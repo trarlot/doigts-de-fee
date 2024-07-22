@@ -1,0 +1,35 @@
+@import '../../../app/page.module';
+.menu {
+    position: fixed;
+    right: 0;
+    height: 100vh;
+    background-color: $pink;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    z-index: -1;
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 5vh;
+        align-items: center;
+        padding: 100px 50px 0 0;
+        opacity: 0%;
+        transition: 0.8s;
+        .title {
+            font-family: 'Bethany';
+            font-size: 70px;
+            font-weight: bold;
+            color: black;
+            opacity: 50%;
+            text-align: center;
+        }
+        a,
+        a:visited {
+            text-decoration: unset;
+            color: black;
+            font-size: 40px;
+            font-weight: bold;
+        }
+    }
+}

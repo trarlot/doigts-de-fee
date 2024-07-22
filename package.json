@@ -1,0 +1,27 @@
+{
+    "name": "doigts-de-fee",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@svgr/webpack": "^8.1.0",
+        "aos": "^2.3.4",
+        "framer-motion": "^11.2.10",
+        "gsap": "^3.12.5",
+        "lenis": "^1.1.3",
+        "next": "14.2.3",
+        "react": "^18",
+        "react-dom": "^18",
+        "sass": "^1.75.0",
+        "sharp": "^0.33.4"
+    },
+    "devDependencies": {
+        "eslint": "^8",
+        "eslint-config-next": "14.2.3"
+    }
+}
