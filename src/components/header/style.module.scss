@@ -1,0 +1,139 @@
+@import '../../app/page.module';
+
+.header {
+    position: absolute;
+    display: flex;
+    z-index: 50;
+    top: 0;
+    color: white;
+    padding: 15px 75px;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 300;
+    box-sizing: border-box;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+
+    .nav {
+        display: flex;
+        align-items: center;
+
+        .el {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+            padding: 15px 30px;
+            font-size: 24px;
+            transition: 0.3s;
+            cursor: pointer;
+            &:hover {
+                color: #fabdb5 !important;
+            }
+        }
+        a {
+            cursor: pointer;
+        }
+    }
+}
+.containerButton {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    right: 0;
+    width: 75px;
+    height: 75px;
+    z-index: 9;
+    transform: scale(0);
+}
+
+.button {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    border-radius: 54% 46% 42% 58% / 60% 58% 42% 40%;
+    background-color: $dark-green;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    box-shadow: 0 0 0 0 black;
+    .burger {
+        width: 100%;
+
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            background-color: white;
+            width: 40%;
+            height: 3px;
+            position: relative;
+            margin: auto;
+            transition: 0.3s;
+        }
+        &:before {
+            top: -5px;
+        }
+        &:after {
+            top: 5px;
+        }
+    }
+    .burgerActive {
+        &:before {
+            top: 1px;
+            transform: rotate(45deg);
+        }
+        &:after {
+            top: -1px;
+            transform: rotate(-45deg);
+        }
+    }
+    &:hover {
+        box-shadow: 0px 0px 15px -5px black;
+    }
+    &:global(.button_animation) {
+        animation: wave 3s linear infinite !important;
+    }
+}
+
+@keyframes wave {
+    20% {
+        border-radius: 45% 55% 62% 38% / 53% 51% 49% 47%;
+    }
+    40% {
+        border-radius: 47% 58% 49% 51% / 36% 53% 49% 49%;
+    }
+    60% {
+        border-radius: 60% 40% 57% 43% / 47% 62% 38% 53%;
+    }
+    80% {
+        border-radius: 60% 40% 32% 68% / 38% 36% 64% 62%;
+    }
+}
+.ripple {
+    position: absolute;
+    border: solid 4px black;
+    border-radius: 54% 46% 42% 58% / 60% 58% 42% 40%;
+    width: 100%;
+    z-index: 1;
+    height: 100%;
+    animation: rippleEffect 0.8s 1;
+    opacity: 0;
+}
+@keyframes rippleEffect {
+    0% {
+        opacity: 0.6;
+    }
+    100% {
+        width: 150%;
+        height: 150%;
+        border-width: 0px;
+        opacity: 0;
+    }
+}

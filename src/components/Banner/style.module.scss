@@ -1,0 +1,40 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    svg {
+        width: 80%;
+        max-width: 1200px;
+        z-index: 1;
+        width: 80%;
+        path {
+            -webkit-transition: 0.3s all;
+            -webkit-transition-delay: 0.3s;
+            -moz-transition: 0.3s all;
+            -moz-transition-delay: 0.3s;
+            -ms-transition: 0.3s all;
+            -ms-transition-delay: 0.3s;
+            -o-transition: 0.3s all;
+            -o-transition-delay: 0.3s;
+            transition: 0.3s all;
+            transition-delay: 0.3s;
+            transform-origin: center;
+            &:hover {
+                -webkit-transition-delay: 0s;
+                -moz-transition-delay: 0s;
+                -ms-transition-delay: 0s;
+                -o-transition-delay: 0s;
+                transition-delay: 0s;
+                fill: #f9877b !important;
+            }
+        }
+    }
+
+    .banner {
+        filter: brightness(40%);
+    }
+}
