@@ -57,9 +57,10 @@ html.lenis body {
         transition: 0.5s;
     }
     .line {
-        width: 100vw;
         overflow: hidden;
-        top: 50vh;
+        width: 1950px;
+        top: 500px;
+        margin: 0 auto;
         position: absolute;
         pointer-events: none;
 
@@ -67,6 +68,13 @@ html.lenis body {
             stroke: $light-pink !important;
             width: 100%;
             z-index: 0;
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .main {
+        .line {
+            width: 1200px;
         }
     }
 }

@@ -19,7 +19,6 @@ export default function index() {
     return (
         <div className={styles.menu}>
             <div id="container" className={styles.container}>
-                <p className={styles.title}>Doigts de fée</p>
                 {navItems.map((data, index) => {
                     return (
                         <Link key={index} href={data.href}>

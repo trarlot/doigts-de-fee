@@ -105,6 +105,14 @@ export default function index({ lenisRef }) {
                         <a>Tarifs</a>
                     </div>
                 </div>
+                <div
+                    className={styles.menu}
+                    onClick={(e) => {
+                        setIsActive(!isActive);
+                        handleClick(e);
+                    }}>
+                    Menu
+                </div>
             </div>
             <div ref={button} className={styles.containerButton}>
                 <div

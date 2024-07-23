@@ -26,7 +26,20 @@ export default function Home() {
     }, []);
     useLayoutEffect(() => {
         let path = document.querySelector('#line path');
+
         let pathLength = path.getTotalLength();
+        var body = document.body,
+            html = document.documentElement;
+
+        var height = Math.max(
+            body.scrollHeight,
+            body.offsetHeight,
+            html.clientHeight,
+            html.scrollHeight,
+            html.offsetHeight,
+        );
+        console.log(height);
+        path.parentNode.style.minHeight = height + 'px';
         path.style.strokeDasharray = pathLength + ' ' + pathLength;
         path.style.strokeDasharray = pathLength;
         window.addEventListener('scroll', () => {

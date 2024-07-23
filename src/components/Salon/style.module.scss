@@ -30,12 +30,7 @@
             height: auto;
             position: relative;
         }
-        .after {
-            background-color: $white;
-            position: absolute;
-            width: 51%;
-            height: 101%;
-        }
+
         svg {
             position: absolute;
             top: 0;
@@ -59,13 +54,6 @@
             width: 40%;
             height: auto;
         }
-        .after {
-            background-color: $white;
-            position: absolute;
-            width: 41%;
-            height: 101%;
-            transform-origin: bottom;
-        }
     }
     #pedicure {
         width: 100%;
@@ -77,12 +65,50 @@
             width: 40%;
             height: auto;
         }
-        .after {
-            background-color: $white;
-            position: absolute;
-            width: 41%;
-            height: 101%;
-            transform-origin: bottom;
+    }
+}
+@media screen and (max-width: 800px) {
+    .salon {
+        padding: 0 35px;
+        #accueil {
+            .image {
+                width: 60%;
+                padding: 50px 0;
+            }
+        }
+        #manucure {
+            .image {
+                width: 50%;
+                padding: 50px 0;
+            }
+        }
+        #pedicure {
+            .image {
+                width: 45%;
+                padding: 50px 0;
+            }
+        }
+    }
+}
+@media screen and (max-width: 450px) {
+    .salon {
+        #accueil {
+            .image {
+                width: 80%;
+                padding: 25px 0;
+            }
+        }
+        #manucure {
+            .image {
+                width: 70%;
+                padding: 25px 0;
+            }
+        }
+        #pedicure {
+            .image {
+                width: 60%;
+                padding: 25px 0;
+            }
         }
     }
 }

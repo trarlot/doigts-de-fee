@@ -14,7 +14,7 @@ export default function Index() {
                 opacity: 1,
                 scrollTrigger: {
                     trigger: `.${styles.duo}`,
-                    start: 'top center',
+                    start: 'top center+=150px',
                     end: 'bottom bottom',
                     scrub: true,
                 },

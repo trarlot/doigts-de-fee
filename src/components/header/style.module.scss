@@ -6,7 +6,7 @@
     z-index: 50;
     top: 0;
     color: white;
-    padding: 15px 35px;
+    padding: 35px;
     justify-content: space-between;
     width: 100%;
     font-weight: 300;
@@ -137,8 +137,16 @@
         opacity: 0;
     }
 }
+@media screen and (min-width: 800px) {
+    .header {
+        .menu {
+            display: none;
+        }
+    }
+}
 @media screen and (max-width: 800px) {
     .header {
+        padding: 15px 30px;
         .logo {
             max-width: 80px;
         }
@@ -149,5 +157,12 @@
     .containerButton {
         width: 65px;
         height: 65px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .header {
+        .logo {
+            max-width: 60px;
+        }
     }
 }

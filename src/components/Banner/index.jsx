@@ -34,7 +34,7 @@ export default function Index() {
                 <Image
                     className={styles.banner}
                     fill={true}
-                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                    style={{ objectFit: 'cover', objectPosition: '34%' }}
                     alt={'banner'}
                     src={`/assets/banner_doigtsdefee.png`}
                 />
