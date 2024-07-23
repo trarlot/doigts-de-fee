@@ -76,6 +76,7 @@ export default function index({ lenisRef }) {
                     },
                 },
             });
+
             return () => ctx.revert(); // Cleanup
         });
     }, []);
@@ -85,7 +86,7 @@ export default function index({ lenisRef }) {
             <div className={styles.header}>
                 <Image
                     className={styles.logo}
-                    src="/assets/logo_doigtsdefee_blanc.png"
+                    src="/svg/logo.svg"
                     width={120}
                     height={100} // Set a fixed height
                     alt="logo"

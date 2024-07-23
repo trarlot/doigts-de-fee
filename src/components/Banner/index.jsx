@@ -35,7 +35,7 @@ export default function Index() {
                     className={styles.banner}
                     fill={true}
                     style={{ objectFit: 'cover', objectPosition: 'center' }}
-                    alt={'logo'}
+                    alt={'banner'}
                     src={`/assets/banner_doigtsdefee.png`}
                 />
                 <Title />

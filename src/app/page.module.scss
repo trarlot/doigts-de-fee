@@ -1,5 +1,5 @@
 $green: #88d394;
-$dark-green: #1f5720;
+$dark-green: #119513;
 $pink: #f9877b;
 $light-pink: #fabdb5;
 $white: #faf9f6;
@@ -58,14 +58,13 @@ html.lenis body {
     }
     .line {
         width: 100vw;
-        height: auto;
         overflow: hidden;
         top: 50vh;
         position: absolute;
         pointer-events: none;
 
         path {
-            stroke: #ffe6e2 !important;
+            stroke: $light-pink !important;
             width: 100%;
             z-index: 0;
         }

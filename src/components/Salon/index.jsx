@@ -53,6 +53,7 @@ export default function Index() {
             </h2>
             <div id={styles.accueil} className={styles.container}>
                 <Image
+                    data-aos="fade-up"
                     className={styles.image}
                     width={975}
                     height={700}
@@ -62,6 +63,7 @@ export default function Index() {
             </div>
             <div id={styles.manucure} className={styles.container}>
                 <Image
+                    data-aos="fade-up"
                     className={styles.image}
                     width={700}
                     height={680}
@@ -71,6 +73,7 @@ export default function Index() {
             </div>
             <div id={styles.pedicure} className={styles.container}>
                 <Image
+                    data-aos="fade-up"
                     className={styles.image}
                     width={700}
                     height={975}

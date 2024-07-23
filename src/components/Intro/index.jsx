@@ -10,8 +10,17 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Index() {
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
+            gsap.to(`.${styles.nail}`, {
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: `.${styles.duo}`,
+                    start: 'top center',
+                    end: 'bottom bottom',
+                    scrub: true,
+                },
+            });
             gsap.to(`#${styles.pink}`, {
-                rotate: -65,
+                rotate: -70,
                 scrollTrigger: {
                     trigger: `.${styles.duo}`,
                     start: 'top bottom',
@@ -29,7 +38,7 @@ export default function Index() {
                 },
             });
             gsap.to(`#${styles.green}`, {
-                rotate: -115,
+                rotate: -110,
                 scrollTrigger: {
                     trigger: `.${styles.duo}`,
                     start: 'top bottom',
@@ -63,7 +72,7 @@ export default function Index() {
                         width={700}
                         height={2000}
                         alt={'ongle rose'}
-                        src={`/assets/pinkNail.png`}
+                        src={`/assets/pinkNail2.png`}
                     />
                     <Image
                         className={styles.nail}
@@ -71,7 +80,7 @@ export default function Index() {
                         width={700}
                         height={2000}
                         alt={'ongle laurine'}
-                        src={`/assets/photoNail.png`}
+                        src={`/assets/photoNail2.png`}
                     />
                     <Image
                         className={styles.nail}
@@ -79,7 +88,7 @@ export default function Index() {
                         width={700}
                         height={2000}
                         alt={'ongle vert'}
-                        src={`/assets/greenNail.png`}
+                        src={`/assets/greenNail2.png`}
                     />
                 </div>
             </section>

@@ -19,6 +19,7 @@
         p {
             max-width: 500px;
             width: 100%;
+            font-size: 24px;
         }
     }
     .images {
@@ -34,7 +35,8 @@
             max-width: 400px;
             height: auto;
             bottom: 50%;
-            right: -70%;
+            right: -90%;
+            opacity: 0;
             transform-origin: center bottom;
         }
         #pink {
@@ -45,6 +47,47 @@
         }
         #photo {
             display: block;
+        }
+    }
+}
+@media screen and (max-width: 1200px) {
+    .duo {
+        .images {
+            .nail {
+                right: -110%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .duo {
+        padding: 0 35px;
+        flex-direction: column-reverse;
+        margin: 50px auto;
+        .description {
+            align-items: center;
+            p {
+                text-align: center;
+                font-size: 20px;
+            }
+        }
+        .images {
+            height: 700px;
+            .nail {
+                width: 33vw;
+                right: -45%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 450px) {
+    .duo {
+        .images {
+            height: 500px;
+            .nail {
+                width: 35vw;
+                right: -55%;
+            }
         }
     }
 }
