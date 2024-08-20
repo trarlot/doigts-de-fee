@@ -3,17 +3,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 110vh;
     width: 100vw;
     background-color: #141516;
     position: fixed;
     top: -100px;
     left: 0;
-    z-index: 99;
+
+    z-index: 999;
     padding-top: 100px;
-
     flex-direction: column;
-
+    pointer-events: all;
     svg {
         overflow: visible;
         path {

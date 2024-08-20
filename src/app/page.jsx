@@ -1,28 +1,31 @@
 'use client';
 
-import { React, useState, useLayoutEffect, useEffect } from 'react';
+import { React, useState, useContext, useLayoutEffect, useEffect } from 'react';
 import Preloader from '../components/Preloader/index';
 import Line from '@/svg/line.svg';
 import { AnimatePresence } from 'framer-motion';
 import Banner from '../components/Banner/index';
+import { useLoading } from '../components/contexts/LoadingContext';
 import Intro from '../components/Intro/index';
 import Salon from '../components/Salon/index';
 import styles from './page.module.scss';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 export default function Home() {
-    const [isLoading, setIsLoading] = useState(true);
+    const { isLoading, setIsLoading } = useLoading();
 
     useEffect(() => {
         AOS.init({
             duration: 500,
         });
-        setTimeout(() => {
-            document.body.style.cursor = 'default';
-            console.log('salut');
-            setIsLoading(false);
-            window.scrollTo(0, 0);
-        }, 4500);
+        if (isLoading) {
+            document.body.style.cursor = 'wait';
+            setTimeout(() => {
+                document.body.style.cursor = 'default';
+                setIsLoading(false);
+                window.scrollTo(0, 0);
+            }, 4500);
+        }
     }, []);
     useLayoutEffect(() => {
         let path = document.querySelector('#line path');
@@ -38,8 +41,7 @@ export default function Home() {
             html.scrollHeight,
             html.offsetHeight,
         );
-        console.log(height);
-        path.parentNode.style.minHeight = height + 'px';
+
         path.style.strokeDasharray = pathLength + ' ' + pathLength;
         path.style.strokeDasharray = pathLength;
         window.addEventListener('scroll', () => {

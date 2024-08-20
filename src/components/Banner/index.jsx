@@ -5,20 +5,20 @@ import styles from './style.module.scss';
 import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { slideUp } from './animation';
-import { motion } from 'framer-motion';
+import { useLoading } from '../contexts/LoadingContext'; // Assurez-vous que le chemin est correct
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Index() {
     const containerRef = useRef(null);
+
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
             gsap.to(`.${styles.container} svg`, {
                 y: -500,
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: 'top-=300px top',
+                    start: 'top top',
                     end: 'bottom top',
                     scrub: true,
                 },
@@ -29,7 +29,7 @@ export default function Index() {
     }, []);
 
     return (
-        <motion.section variants={slideUp} initial="initial" animate="enter">
+        <section>
             <div ref={containerRef} className={styles.container}>
                 <Image
                     className={styles.banner}
@@ -40,6 +40,6 @@ export default function Index() {
                 />
                 <Title />
             </div>
-        </motion.section>
+        </section>
     );
 }

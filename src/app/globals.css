@@ -3,7 +3,6 @@ body {
   position: relative;
   z-index: -2;
   overflow-x: hidden;
-  cursor: wait;
   display: flex;
   flex-direction: column;
   align-items: center;

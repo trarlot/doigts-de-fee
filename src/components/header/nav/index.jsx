@@ -1,6 +1,10 @@
 import styles from './style.module.scss';
-import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { TransitionLink } from '../../../app/utils/TransitionLink';
+
 export default function index() {
+    const path = usePathname();
+
     const navItems = [
         {
             title: 'Accueil',
@@ -8,11 +12,11 @@ export default function index() {
         },
         {
             title: 'Galerie',
-            href: '/gallery',
+            href: '/pages/gallery',
         },
         {
             title: 'Tarifs',
-            href: '/pricing',
+            href: '/pages/pricing',
         },
     ];
 
@@ -21,9 +25,12 @@ export default function index() {
             <div id="container" className={styles.container}>
                 {navItems.map((data, index) => {
                     return (
-                        <Link key={index} href={data.href}>
+                        <TransitionLink
+                            key={index}
+                            href={data.href}
+                            title={data.title}>
                             {data.title}
-                        </Link>
+                        </TransitionLink>
                     );
                 })}
             </div>

@@ -108,9 +108,11 @@ export const animation = [
 export const slide = {
     initial: {
         y: 0,
+        clipPath: 'ellipse(100% 55% at 48% 44%)',
     },
     exit: {
-        y: '-100vh',
+        y: '-110vh',
+        clipPath: 'ellipse(0% 0% at 0% 0%)',
         transition: { duration: 0.5, ease: 'anticipate', delay: 0.2 },
     },
 };

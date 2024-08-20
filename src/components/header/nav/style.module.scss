@@ -17,20 +17,12 @@
         width: 370px;
         opacity: 0%;
         transition: 0.8s;
-        .title {
-            font-family: 'Bethany';
-            font-size: 70px;
-            font-weight: bold;
-            color: black;
-            opacity: 50%;
-            text-align: center;
-        }
+
         a,
         a:visited {
             text-decoration: unset;
             color: black;
-            font-size: 40px;
-            font-weight: bold;
+            font-size: 30px;
         }
     }
 }

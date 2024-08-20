@@ -1,5 +1,5 @@
 import styles from './style.module.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { animation, slide } from './animationLogo';
 import { motion } from 'framer-motion';
