@@ -1,46 +1,45 @@
 'use client';
 
-import { React, useState, useContext, useLayoutEffect, useEffect } from 'react';
-import Preloader from '../components/Preloader/index';
+import {
+    React,
+    useState,
+    useContext,
+    useLayoutEffect,
+    useRef,
+    useEffect,
+} from 'react';
 import Line from '@/svg/line.svg';
-import { AnimatePresence } from 'framer-motion';
 import Banner from '../components/Banner/index';
-import { useLoading } from '../components/contexts/LoadingContext';
-import Intro from '../components/Intro/index';
+import Intro from '../components/Intro2/index';
 import Salon from '../components/Salon/index';
+import Planity from '../components/Planity/index';
 import styles from './page.module.scss';
+import Gallery from '../components/Gallery/index';
+import Footer from '../components/Footer/index';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+
 export default function Home() {
-    const { isLoading, setIsLoading } = useLoading();
+    const lenisRef = useRef();
 
     useEffect(() => {
         AOS.init({
             duration: 500,
         });
-        if (isLoading) {
-            document.body.style.cursor = 'wait';
-            setTimeout(() => {
-                document.body.style.cursor = 'default';
-                setIsLoading(false);
-                window.scrollTo(0, 0);
-            }, 4500);
-        }
+
+        // if (isLoading) {
+        //     document.body.style.cursor = 'wait';
+        //     setTimeout(() => {
+        //         document.body.style.cursor = 'default';
+        //         setIsLoading(false);
+        //         window.scrollTo(0, 0);
+        //     }, 4500);
+        // }
     }, []);
-    useLayoutEffect(() => {
+    useEffect(() => {
         let path = document.querySelector('#line path');
 
         let pathLength = path.getTotalLength();
-        var body = document.body,
-            html = document.documentElement;
-
-        var height = Math.max(
-            body.scrollHeight,
-            body.offsetHeight,
-            html.clientHeight,
-            html.scrollHeight,
-            html.offsetHeight,
-        );
 
         path.style.strokeDasharray = pathLength + ' ' + pathLength;
         path.style.strokeDasharray = pathLength;
@@ -55,15 +54,20 @@ export default function Home() {
     }, []);
 
     return (
-        <main id="main" className={styles.main}>
-            <div id="principal" className={styles.principal}></div>
-            <Line className={styles.line} />
-            <AnimatePresence mode="wait">
+        <>
+            <main data-main id="main" className={styles.main}>
+                <div id="principal" className={styles.principal}></div>
+                <Line className={styles.line} />
+                {/* <AnimatePresence mode="wait">
                 {isLoading && <Preloader />}
-            </AnimatePresence>
-            <Banner />
-            <Intro />
-            <Salon />
-        </main>
+                </AnimatePresence> */}
+                <Banner />
+                <Intro />
+                <Planity />
+                <Gallery />
+                <Salon />
+            </main>
+            <Footer />
+        </>
     );
 }

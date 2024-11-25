@@ -5,8 +5,10 @@ const MenuContext = createContext();
 
 const MenuProvider = ({ children }) => {
     const [isActive, setIsActive] = useState(false);
+    const [titleName, setTitleName] = useState('');
     return (
-        <MenuContext.Provider value={{ isActive, setIsActive }}>
+        <MenuContext.Provider
+            value={{ isActive, setIsActive, titleName, setTitleName }}>
             {children}
         </MenuContext.Provider>
     );

@@ -3,114 +3,98 @@ import styles from './style.module.scss';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Index() {
+    const shape6Ref = useRef(null);
+    const plant4Ref = useRef(null);
     useLayoutEffect(() => {
-        const mm = gsap.matchMedia();
+        let ctx = gsap.context(() => {
+            gsap.fromTo(
+                [`.${styles.col}`, shape6Ref.current, plant4Ref.current],
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: 'power1.inOut',
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: '[data-salon]',
+                        start: 'center-=20% bottom',
+                        toggleActions: 'restart none play reverse',
+                    },
+                },
+            );
+        });
 
-        // Ajouter des media queries spécifiques
-        mm.add(
-            {
-                isDesktop: '(min-width: 450px)',
-                isMobile: '(max-width: 449px)',
-            },
-            (context) => {
-                let { isDesktop, isMobile } = context.conditions;
-
-                if (isDesktop) {
-                    const pedicure = document.querySelector(
-                        `#${styles.pedicure}`,
-                    );
-                    const manucure = document.querySelector(
-                        `#${styles.manucure}`,
-                    );
-                    const accueil = document.querySelector(
-                        `#${styles.accueil}`,
-                    );
-
-                    const pedicureAnimation = gsap.to(`#${styles.pedicure}`, {
-                        y: pedicure.offsetHeight / 2,
-                        scrollTrigger: {
-                            trigger: `#${styles.pedicure}`,
-                            start: 'center center',
-                            end: 'bottom top',
-                            scrub: true,
-                            id: 'pedicureAnimation', // Nom unique pour l'animation
-                        },
-                    });
-
-                    const manucureAnimation = gsap.to(`#${styles.manucure}`, {
-                        y: manucure.offsetHeight / 2,
-                        scrollTrigger: {
-                            trigger: `#${styles.manucure}`,
-                            start: 'center center',
-                            end: 'bottom top',
-                            scrub: true,
-                            id: 'manucureAnimation', // Nom unique pour l'animation
-                        },
-                    });
-
-                    const accueilAnimation = gsap.to(`#${styles.accueil}`, {
-                        y: accueil.offsetHeight / 2,
-                        scrollTrigger: {
-                            trigger: `#${styles.accueil}`,
-                            start: 'center center',
-                            end: 'bottom top',
-                            scrub: true,
-                            id: 'accueilAnimation', // Nom unique pour l'animation
-                        },
-                    });
-                } else {
-                    // Désactiver spécifiquement les animations GSAP pour les écrans inférieurs à 800px
-                    ScrollTrigger.getById('pedicureAnimation')?.kill();
-                    ScrollTrigger.getById('manucureAnimation')?.kill();
-                    ScrollTrigger.getById('accueilAnimation')?.kill();
-                }
-            },
-        );
-
-        return () => {
-            // Cleanup
-            mm.revert();
-        };
+        return () => ctx.revert();
     }, []);
 
     return (
-        <section className={styles.salon}>
-            <h2 data-aos="fade-up" className={styles.title}>
-                Le Salon
-            </h2>
-            <div id={styles.accueil} className={styles.container}>
+        <section className={styles.container} data-salon-container>
+            <div className={styles.salonContainer}>
+                <div className={styles.salon} data-salon>
+                    <div className={styles.row}>
+                        <div className={styles.col}>
+                            <div className={styles.title}>
+                                <p className={styles.titleText}>
+                                    Notre havre de paix...
+                                </p>
+                            </div>
+                        </div>
+                        <div className={styles.col}>
+                            <Image
+                                width={900}
+                                height={200}
+                                alt={'accueil salon'}
+                                src={`/assets/salon2.jpg`}
+                            />
+                        </div>
+                        <div className={styles.col}>
+                            <Image
+                                width={900}
+                                height={200}
+                                alt={'accueil salon'}
+                                src={`/assets/salon3.jpg`}
+                            />
+                        </div>
+                    </div>
+                    <div className={styles.row}>
+                        <div className={styles.col}>
+                            <Image
+                                width={900}
+                                height={200}
+                                alt={'accueil salon'}
+                                src={`/assets/salon4.jpg`}
+                            />
+                        </div>
+                        <div className={styles.col}>
+                            <Image
+                                width={900}
+                                height={200}
+                                alt={'accueil salon'}
+                                src={`/assets/salon5.jpg`}
+                            />
+                        </div>
+                    </div>
+                </div>
                 <Image
-                    data-aos="fade-up"
-                    className={styles.image}
-                    width={975}
-                    height={700}
+                    ref={shape6Ref}
+                    id={styles.shape6}
+                    width={900}
+                    height={200}
                     alt={'accueil salon'}
-                    src={`/assets/accueil_salon.png`}
+                    src={`/svg/shape1.svg`}
                 />
-            </div>
-            <div id={styles.manucure} className={styles.container}>
                 <Image
-                    data-aos="fade-up"
-                    className={styles.image}
-                    width={700}
-                    height={680}
-                    alt={'manucure salon'}
-                    src={`/assets/manucure_salon.png`}
-                />
-            </div>
-            <div id={styles.pedicure} className={styles.container}>
-                <Image
-                    data-aos="fade-up"
-                    className={styles.image}
-                    width={700}
-                    height={975}
-                    alt={'pedicure salon'}
-                    src={`/assets/pedicure_salon.png`}
+                    ref={plant4Ref}
+                    id={styles.plant4}
+                    width={900}
+                    height={200}
+                    alt={'accueil salon'}
+                    src={`/svg/plant4.svg`}
                 />
             </div>
         </section>

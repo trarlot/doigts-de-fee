@@ -3,26 +3,48 @@
     position: fixed;
     right: 0;
     height: 100vh;
-    background-color: $pink;
+    background-color: $grey;
     width: 100%;
     display: flex;
     justify-content: flex-end;
     z-index: -1;
+
     .container {
         display: flex;
         flex-direction: column;
-        gap: 5vh;
+        gap: 6vh;
         align-items: center;
-        padding: 200px 0 0 0;
+        padding: 125px 0 0 0;
         width: 370px;
         opacity: 0%;
         transition: 0.8s;
+        .logo {
+            margin-bottom: 25px;
+        }
+        .linkContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            a,
+            a:visited {
+                text-decoration: unset;
+                color: rgb(255, 255, 255);
+                font-size: 40px;
+                font-weight: 900;
+                position: relative;
+                font-family: 'Bethany';
+            }
+            &:hover {
+                cursor: pointer;
+            }
 
-        a,
-        a:visited {
-            text-decoration: unset;
-            color: black;
-            font-size: 30px;
+            .buttonbg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
         }
     }
 }

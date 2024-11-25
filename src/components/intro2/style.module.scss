@@ -1,0 +1,112 @@
+@import '../../app/page.module';
+
+.intro {
+    width: 100%;
+    height: 100vh;
+    background-color: $beige;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 60px;
+    h2 {
+        max-width: 1000px;
+        position: inherit;
+        z-index: 2;
+        text-align: center;
+        font-size: 85px;
+        font-weight: 500;
+        font-family: 'Rouge Script';
+        line-height: 75px;
+        margin: 0;
+        padding: 0 20px;
+    }
+    p {
+        max-width: 1000px;
+        position: inherit;
+        z-index: 2;
+        text-align: center;
+        font-size: 24px;
+        line-height: 35px;
+        font-weight: 500;
+        font-family: 'Luimp';
+        margin: 0;
+        padding: 0 20px;
+    }
+    .wordWrap {
+        display: inline-block;
+        white-space: nowrap;
+    }
+    .bold {
+        font-weight: bold;
+    }
+    #plant1 {
+        position: absolute;
+        right: -3vw;
+        z-index: 1;
+        transform: translateY(-100px);
+    }
+    #shape1 {
+        position: absolute;
+
+        right: -5vw;
+        z-index: 1;
+        transform: translateY(-280px);
+    }
+
+    #plant2 {
+        width: 450px;
+        height: auto;
+        position: absolute;
+        left: 0;
+        z-index: 1;
+        transform: translateY(600px);
+    }
+    #shape2 {
+        width: 300px;
+        height: auto;
+        position: absolute;
+        left: 50px;
+        z-index: 1;
+
+        transform: translateY(400px);
+    }
+    #shape3 {
+        width: 300px;
+        height: auto;
+        position: absolute;
+        left: -20px;
+        z-index: 1;
+
+        transform: translateY(635px);
+    }
+}
+@media (max-width: 1250px) {
+    .intro {
+        h2 {
+            font-size: 60px;
+            max-width: 800px;
+        }
+        p {
+            font-size: 20px;
+            max-width: 800px;
+        }
+        #shape1,
+        #plant1 {
+            width: 250px;
+        }
+        #shape2 {
+            width: 200px;
+            transform: translateY(350px);
+        }
+        #shape3 {
+            width: 200px;
+            transform: translateY(500px);
+        }
+        #plant2 {
+            width: 300px;
+            transform: translateY(500px);
+        }
+    }
+}

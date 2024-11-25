@@ -1,0 +1,22 @@
+.buttonContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    width: fit-content;
+    z-index: 2;
+    .buttonbg {
+        transition: 0.3s;
+        z-index: 2;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    &:hover {
+        .buttonbg {
+            scale: 1.3 !important;
+        }
+    }
+}

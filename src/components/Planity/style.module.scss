@@ -1,0 +1,110 @@
+@import '../../app/page.module';
+
+.duo {
+    background: $beige-light;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 75px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .container {
+        max-width: 1300px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        position: relative;
+        .shape4 {
+            position: absolute;
+            width: 200px;
+            height: auto;
+            top: -70px;
+            right: 80px;
+        }
+        .plant3 {
+            position: absolute;
+            width: 200px;
+            height: auto;
+            top: -110px;
+            right: 80px;
+        }
+    }
+    .text {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 75px;
+        h2 {
+            position: inherit;
+            z-index: 2;
+
+            text-align: right;
+            font-size: 85px;
+            font-weight: 500;
+            font-family: 'Rouge Script';
+            line-height: 75px;
+            margin: 0;
+            margin-bottom: -10px;
+        }
+        p {
+            position: inherit;
+            z-index: 2;
+            text-align: right;
+            font-size: 28px;
+            line-height: 35px;
+            font-weight: 500;
+            font-family: 'Luimp';
+            margin: 0;
+        }
+        .wordWrap {
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .buttonText {
+            font-size: 60px;
+            font-weight: 500;
+            line-height: 80px;
+            font-family: 'Bethany';
+            .word {
+                display: inline-block;
+            }
+        }
+    }
+    .container_image {
+        position: relative;
+        z-index: 2;
+        width: 50%;
+        height: 550px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .image {
+            width: 400px;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(0.25);
+            border-radius: 250px 250px 0 0;
+        }
+    }
+    #shape5 {
+        width: 300px;
+        height: auto;
+        position: absolute;
+        bottom: -150px;
+        right: 20px;
+        z-index: 2;
+    }
+    #plant4 {
+        width: 400px;
+        height: auto;
+        position: absolute;
+        bottom: 0;
+        right: 0px;
+        z-index: 2;
+        transform: translateY(400px);
+    }
+}

@@ -4,12 +4,13 @@ import styles from './style.module.scss';
 import Nav from './nav/index';
 import Image from 'next/image';
 import gsap from 'gsap';
+import Magnetic from '../../common/Magnetic';
 import { TransitionLink } from '../../app/utils/TransitionLink';
 import { useMenu } from '../contexts/MenuContext';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { usePathname } from 'next/navigation';
 
-export default function index({ lenisRef }) {
+export default function index() {
     const path = usePathname();
     const navItems = [
         {
@@ -19,10 +20,6 @@ export default function index({ lenisRef }) {
         {
             title: 'Galerie',
             href: '/pages/gallery',
-        },
-        {
-            title: 'Tarifs',
-            href: '/pages/pricing',
         },
     ];
     const button = useRef(null);
@@ -55,12 +52,10 @@ export default function index({ lenisRef }) {
 
             return () => ctx.revert(); // Cleanup
         });
-        console.log(isActive);
         const main = document.getElementById('main');
         if (main) {
             const rippleElement = document.querySelector('.myRipple');
             const rippleDiv = document.createElement('div');
-
             const principal = document.getElementById('principal');
             const body = document.getElementsByTagName('body')[0];
             const rect = main.getBoundingClientRect();
@@ -73,7 +68,7 @@ export default function index({ lenisRef }) {
             logo.style.filter = 'none';
 
             if (isActive) {
-                body.style.overflowY = 'hidden';
+                body.style.overflowY = 'hidden ';
                 menu.style.color = 'black';
                 logo.style.filter = 'invert(1)';
                 origin - window.innerHeight < 500
@@ -85,10 +80,6 @@ export default function index({ lenisRef }) {
                 main.classList.add('displayMenu');
                 principal.style.opacity = '70%';
                 container.style.opacity = '100%';
-
-                if (lenisRef.current) {
-                    lenisRef.current.stop();
-                }
             } else {
                 body.style.overflowY = 'unset';
                 menu.style.color = 'white';
@@ -97,9 +88,6 @@ export default function index({ lenisRef }) {
                 main.style.transform = 'unset';
                 principal.style.opacity = '0%';
                 container.style.opacity = '0%';
-                if (lenisRef.current) {
-                    lenisRef.current.start();
-                }
             }
             rippleDiv.classList.add(`${styles.ripple}`);
             rippleElement.insertAdjacentElement('beforeBegin', rippleDiv);
@@ -115,22 +103,28 @@ export default function index({ lenisRef }) {
             <div className={styles.header}>
                 <Image
                     className={styles.logo}
-                    src="/svg/logo.svg"
-                    width={120}
-                    height={100}
+                    src="/svg/logo2.svg"
+                    width={100}
+                    height={80}
                     alt="logo"
                     priority
                 />
                 <div className={styles.nav}>
                     {navItems.map((data, index) => {
                         return (
-                            <TransitionLink
-                                className={styles.el}
-                                key={index}
-                                href={data.href}
-                                title={data.title}>
-                                {data.title}
-                            </TransitionLink>
+                            <div
+                                className={styles.linkContainer}
+                                key={data.href}>
+                                <TransitionLink
+                                    href={data.href}
+                                    title={data.title}>
+                                    {data.title}
+                                </TransitionLink>
+
+                                {path === data.href && (
+                                    <div className={styles.activeDot}></div>
+                                )}
+                            </div>
                         );
                     })}
                 </div>
@@ -143,16 +137,20 @@ export default function index({ lenisRef }) {
                 </div>
             </div>
             <div ref={button} className={styles.containerButton}>
-                <div
-                    className={`${styles.button} myRipple button_animation`}
-                    onClick={(e) => {
-                        setIsActive(!isActive);
-                    }}>
+                <Magnetic>
                     <div
-                        className={`${styles.burger} ${
-                            isActive ? styles.burgerActive : ''
-                        }`}></div>
-                </div>
+                        className={`${styles.button}`}
+                        onClick={(e) => {
+                            setIsActive(!isActive);
+                        }}>
+                        <div
+                            className={`${
+                                styles.burger
+                            } myRipple button_animation ${
+                                isActive ? styles.burgerActive : ''
+                            }`}></div>
+                    </div>
+                </Magnetic>
             </div>
             <Nav />
         </>

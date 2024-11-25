@@ -1,114 +1,94 @@
 @import '../../app/page.module';
 
-.salon {
+.container {
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 75px;
-    box-sizing: border-box;
-    background-attachment: fixed;
-    background-position: center;
-    background-image: url('/assets/background_jungle.png');
-    .title {
-        font-family: 'Bethany';
-        font-size: 20vw;
-        font-weight: normal;
-        text-align: start;
-        align-self: center;
+    align-items: center;
+    justify-content: center;
+    background-color: $beige-light;
+    min-height: 100vh;
+    .salonContainer {
+        max-width: 900px;
         position: relative;
-        padding: 13vw 0;
-        filter: invert(1);
-    }
-    #accueil {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        position: relative;
-        float: right;
-        .image {
-            width: 50%;
-            height: auto;
+        .salon {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-gap: 10px;
+            grid-gap: 20px;
             position: relative;
-        }
+            padding: 200px 0px;
+            z-index: 2;
+            img {
+                background-color: transparent;
+            }
 
-        svg {
+            .row {
+                display: contents; // Ceci permet aux colonnes de s'aligner directement sur la grille parent
+
+                .col {
+                    background-color: #fff;
+                    width: 100%;
+                    height: 400px;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+            .row:first-child {
+                .col:nth-child(1) {
+                    grid-column: span 2;
+                    border-radius: 150px 0 150px 0;
+                    background-color: $main-color;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: 'Rouge Script';
+                    font-size: 60px;
+                    text-align: center;
+                    color: $beige-light;
+                    padding: 0 20px;
+                    box-sizing: border-box;
+                }
+                .col:nth-child(2) {
+                    grid-column: span 3;
+                    border-radius: 0px 0 0px 150px;
+                }
+                .col:nth-child(3) {
+                    grid-column: span 3;
+                    border-radius: 0px 200px 0px 0;
+                }
+            }
+            .row:last-child {
+                .col:nth-child(1) {
+                    grid-column: span 3;
+                    border-radius: 0px 0px 0px 200px;
+                }
+                .col:nth-child(2) {
+                    grid-column: span 5;
+                    border-radius: 0px 250px 0px 0;
+                }
+                // Supprimer le troisième col du JSX car il n'est pas nécessaire
+            }
+        }
+        #shape6 {
+            width: 250px;
+            height: auto;
             position: absolute;
-            top: 0;
-            left: 0;
-            transform: translate(6%, -80%);
-            width: 27%;
+            bottom: 130px;
+            left: -100px;
+        }
+        #plant4 {
+            width: 250px;
             height: auto;
-
-            path {
-                fill: $dark-green !important;
-            }
-        }
-    }
-    #manucure {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        position: relative;
-
-        .image {
-            width: 40%;
-            height: auto;
-        }
-    }
-    #pedicure {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        position: relative;
-        overflow: hidden;
-        .image {
-            width: 40%;
-            height: auto;
-        }
-    }
-}
-@media screen and (max-width: 800px) {
-    .salon {
-        padding: 0 35px;
-        #accueil {
-            .image {
-                width: 60%;
-                padding: 50px 0;
-            }
-        }
-        #manucure {
-            .image {
-                width: 50%;
-                padding: 50px 0;
-            }
-        }
-        #pedicure {
-            .image {
-                width: 45%;
-                padding: 50px 0;
-            }
-        }
-    }
-}
-@media screen and (max-width: 450px) {
-    .salon {
-        #accueil {
-            .image {
-                width: 80%;
-                padding: 25px 0;
-            }
-        }
-        #manucure {
-            .image {
-                width: 70%;
-                padding: 25px 0;
-            }
-        }
-        #pedicure {
-            .image {
-                width: 60%;
-                padding: 25px 0;
-            }
+            position: absolute;
+            bottom: 30px;
+            left: -120px;
+            transform: rotate(-60deg);
         }
     }
 }

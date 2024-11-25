@@ -5,7 +5,8 @@ import styles from './style.module.scss';
 import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useLoading } from '../contexts/LoadingContext'; // Assurez-vous que le chemin est correct
+import Button from '../Button';
+import Magnetic from '../../common/Magnetic';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,16 +15,15 @@ export default function Index() {
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            gsap.to(`.${styles.container} svg`, {
-                y: -500,
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'top top',
-                    end: 'bottom top',
-                    scrub: true,
-                },
-            });
+            const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+
+            tl.fromTo(
+                `.${styles.title}`,
+                { opacity: 0 },
+                { opacity: 1, duration: 0.2 },
+            );
         });
+        // b3d99a
 
         return () => ctx.revert(); // Cleanup
     }, []);
@@ -31,14 +31,32 @@ export default function Index() {
     return (
         <section>
             <div ref={containerRef} className={styles.container}>
-                <Image
-                    className={styles.banner}
-                    fill={true}
-                    style={{ objectFit: 'cover', objectPosition: '34%' }}
-                    alt={'banner'}
-                    src={`/assets/banner_doigtsdefee.png`}
-                />
-                <Title />
+                <div className={styles.bannerContainer}>
+                    <Image
+                        className={styles.banner}
+                        width={1300}
+                        height={1080}
+                        alt={'banner'}
+                        src={`/assets/brown_nails.jpg`}
+                    />
+                </div>
+                <div className={styles.content}>
+                    <div className={styles.text}>
+                        <p className={styles.title}>Doigts de fée</p>
+                        <p className={styles.subtitle}>
+                            Offrez à vos mains une touche de magie
+                        </p>
+                        <div className={styles.button}>
+                            <Button>
+                                <Magnetic ratio={0.3}>
+                                    <p className={styles.buttonText}>
+                                        Réserver
+                                    </p>
+                                </Magnetic>
+                            </Button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );

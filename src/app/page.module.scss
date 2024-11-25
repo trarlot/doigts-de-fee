@@ -1,35 +1,30 @@
-$green: #88d394;
-$dark-green: #119513;
-$pink: #f9877b;
-$light-pink: #fabdb5;
+$green: #b3d99b;
+$dark-green: #a5ba8a;
+$pink: #ffbcdc;
+$beige-light: #ffd7af;
+$beige: #ffc692;
 $white: #faf9f6;
-
+$main-color: #ef7e60;
+$grey: #3b3b3b;
 @font-face {
     font-family: 'Bethany';
-    src: url('../../public/assets/Bethany\ Script\ Dafont.ttf');
+    src: url('../../public/assets/Bethany.ttf');
 }
-/***********config lenis*************/
-html.lenis,
-html.lenis body {
-    height: auto;
+@font-face {
+    font-family: 'Rouge Script';
+    src: url('../../public/assets/RougeScript-Regular.ttf');
 }
-
-.lenis.lenis-smooth {
-    scroll-behavior: auto !important;
+@font-face {
+    font-family: 'Luimp';
+    src: url('../../public/assets/Luimp.otf');
 }
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-    overflow: hidden;
+@font-face {
+    font-family: 'Luimp';
+    src: url('../../public/assets/LuimpBold.otf') format('woff2');
+    font-weight: bold;
+    font-style: normal;
 }
 
-.lenis.lenis-smooth iframe {
-    pointer-events: none;
-}
-/***********config lenis*************/
 .title {
     padding: 30px 0;
     margin: 0;
@@ -38,7 +33,7 @@ html.lenis body {
     position: fixed;
     width: 130vw;
     height: 500vh;
-    background-color: #141516;
+    background-color: $beige;
     z-index: 99;
     pointer-events: none;
     top: -50%;
@@ -47,31 +42,33 @@ html.lenis body {
     transform: rotate(-45deg);
     transition: 0.8s;
 }
-.transition {
-    left: 0px;
-    transform: rotate(0deg);
-}
-
 .titleTransition {
     position: fixed;
     width: 100%;
     margin: 0;
+    pointer-events: none;
     top: 40vh;
     font-weight: 300;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     font-size: 200px;
     font-family: 'Bethany';
     z-index: 100;
     opacity: 0;
-    transition: 0.5s;
+    transition: 0.3s;
     transition-delay: 0.3s;
 }
+
+.transition {
+    left: 0px;
+    transform: rotate(0deg);
+}
+
 .fade {
     opacity: 1;
 }
 .main {
-    background-color: $white;
+    background-color: transparent;
     transition: 0.3s;
     position: relative;
     display: flex;
@@ -79,6 +76,8 @@ html.lenis body {
     align-items: center;
     flex-direction: column;
     overflow: hidden;
+    margin-bottom: 450px;
+    box-shadow: 0px 16px 15px 0px rgba(0, 0, 0, 0.2);
 
     .principal {
         background-color: $white;
@@ -98,9 +97,10 @@ html.lenis body {
         margin: 0 auto;
         position: absolute;
         pointer-events: none;
+        z-index: 1;
 
         path {
-            stroke: $light-pink !important;
+            stroke: $main-color !important;
             width: 100%;
             z-index: 0;
         }

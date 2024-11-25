@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { animation, slide } from './animationLogo';
 import { motion } from 'framer-motion';
-import Logo from '../../../public/svg/logo.svg';
+import Logo from '../../../public/svg/logo2.svg';
 import Title from '../../../public/svg/title.svg';
 export default function Index() {
     useEffect(() => {

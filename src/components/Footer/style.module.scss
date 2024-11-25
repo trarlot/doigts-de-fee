@@ -1,0 +1,122 @@
+.footer {
+    width: 100%;
+    background: #3b3b3b;
+    position: fixed;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    z-index: -1;
+
+    #card {
+        width: 340px;
+        height: 450px;
+        transform: rotate(-10deg);
+        img {
+            filter: grayscale(0.1);
+        }
+        .links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            justify-content: space-between;
+            width: 100%;
+            .container {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                #shapeInsta1 {
+                    transition: 0.3s;
+                    height: 50px;
+                    width: auto;
+                    position: absolute;
+                    left: -12px;
+                    top: -11px;
+                }
+                #shapeInsta2 {
+                    transition: 0.3s;
+                    width: auto;
+                    height: 50px;
+                    position: absolute;
+                    right: -7px;
+                    bottom: -3px;
+                }
+                #instagram {
+                    position: relative;
+                    z-index: 2;
+                }
+                #shapePhone {
+                    width: 120px;
+                    height: auto;
+                    transition: 0.3s;
+                    position: absolute;
+
+                    bottom: 2px;
+                    transform: rotate(10deg);
+                }
+                &:hover {
+                    #shapePhone {
+                        transform: scale(1.3) rotate(10deg);
+                    }
+                    #shapeInsta1 {
+                        transform: scale(1.2) translate(-2px, -2px);
+                    }
+                    #shapeInsta2 {
+                        transform: scale(1.2) translate(2px, 2px);
+                    }
+                }
+                .phone {
+                    position: relative;
+                    z-index: 2;
+                    font-size: 40px;
+                    line-height: 1;
+                    font-weight: 600;
+                    padding: 10px 0;
+                    color: black;
+                    color: black;
+                    text-decoration: none;
+                    letter-spacing: -2px;
+                    font-family: 'Rouge Script';
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .leafs {
+        position: absolute;
+        height: auto;
+        pointer-events: none;
+    }
+    #leafs1 {
+        width: 15vw;
+        right: 90%;
+        top: 50px;
+    }
+    #leafs2 {
+        width: 25vw;
+        right: 65%;
+        bottom: -10vw;
+    }
+    #leafs3 {
+        right: 32%;
+        bottom: -150px;
+        width: 8vw;
+    }
+    #leafs4 {
+        right: 7%;
+        bottom: -15vw;
+        width: 25vw;
+    }
+    #leafs5 {
+        left: 90%;
+        width: 15vw;
+        transform: rotate(-20deg);
+        top: 20px;
+    }
+}
