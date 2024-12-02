@@ -1,7 +1,7 @@
 @import '../../app/page.module';
 
 .duo {
-    background: $beige;
+    background: $beige-light;
     width: 100%;
     min-height: 120vh;
     padding: 0 75px;
@@ -51,7 +51,7 @@
                 text-align: left;
                 font-size: 85px;
                 font-weight: 500;
-                font-family: 'Rouge Script';
+                font-family: 'Rouge Script", serif';
                 line-height: 75px;
                 margin: 0;
             }

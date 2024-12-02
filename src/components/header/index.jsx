@@ -23,16 +23,18 @@ export default function index() {
         },
     ];
     const button = useRef(null);
+    const planity = useRef(null);
     const { isActive, setIsActive } = useMenu();
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
             gsap.registerPlugin(ScrollTrigger);
-            gsap.to(button.current, {
+            gsap.to([button.current, planity.current], {
                 scrollTrigger: {
                     trigger: document.documentElement,
                     start: 0,
                     end: 500,
+
                     onLeave: () => {
                         gsap.to(button.current, {
                             scale: 1,
@@ -54,23 +56,18 @@ export default function index() {
         });
         const main = document.getElementById('main');
         if (main) {
-            const rippleElement = document.querySelector('.myRipple');
-            const rippleDiv = document.createElement('div');
             const principal = document.getElementById('principal');
             const body = document.getElementsByTagName('body')[0];
             const rect = main.getBoundingClientRect();
             const container = document.getElementById('container');
             const menu = document.getElementsByClassName(`${styles.menu}`)[0];
-            const logo = document.getElementsByClassName(`${styles.logo}`)[0];
             const windowHeight = window.innerHeight;
             let origin = windowHeight - rect.top;
             menu.style.color = 'white';
-            logo.style.filter = 'none';
 
             if (isActive) {
                 body.style.overflowY = 'hidden ';
                 menu.style.color = 'black';
-                logo.style.filter = 'invert(1)';
                 origin - window.innerHeight < 500
                     ? (main.style.transform =
                           'rotate(-10deg) translate(-250px, -150px)')
@@ -78,37 +75,46 @@ export default function index() {
                           'rotate(-10deg) translate(-250px, 0px)');
                 main.style.transformOrigin = '100vw ' + origin + 'px';
                 main.classList.add('displayMenu');
-                principal.style.opacity = '70%';
+                principal.style.opacity = '60%';
                 container.style.opacity = '100%';
             } else {
                 body.style.overflowY = 'unset';
                 menu.style.color = 'white';
-                logo.style.filter = 'unset';
                 main.classList.remove('displayMenu');
                 main.style.transform = 'unset';
                 principal.style.opacity = '0%';
                 container.style.opacity = '0%';
             }
-            rippleDiv.classList.add(`${styles.ripple}`);
-            rippleElement.insertAdjacentElement('beforeBegin', rippleDiv);
+        }
+    }, [isActive]);
 
+    const handleOnClick = (e) => {
+        const rippleElement = e.currentTarget.querySelector('.myRipple');
+        const rippleDiv = document.createElement('div');
+        rippleDiv.classList.add(`${styles.ripple}`);
+        if (rippleElement) {
+            rippleElement.insertAdjacentElement('beforeBegin', rippleDiv);
             setTimeout(function () {
                 rippleDiv.parentElement.removeChild(rippleDiv);
             }, 900);
+        } else {
+            console.error('rippleElement is null');
         }
-    }, [isActive]);
+    };
 
     return (
         <>
             <div className={styles.header}>
-                <Image
-                    className={styles.logo}
-                    src="/svg/logo2.svg"
-                    width={100}
-                    height={80}
-                    alt="logo"
-                    priority
-                />
+                <TransitionLink href="/" title="Accueil">
+                    <Image
+                        className={styles.logo}
+                        src="/svg/logo2.svg"
+                        width={110}
+                        height={90}
+                        alt="logo"
+                        priority
+                    />
+                </TransitionLink>
                 <div className={styles.nav}>
                     {navItems.map((data, index) => {
                         return (
@@ -120,38 +126,33 @@ export default function index() {
                                     title={data.title}>
                                     {data.title}
                                 </TransitionLink>
-
-                                {path === data.href && (
-                                    <div className={styles.activeDot}></div>
-                                )}
                             </div>
                         );
                     })}
+                    <div className={styles.activeDot}></div>
                 </div>
                 <div
                     className={styles.menu}
                     onClick={(e) => {
                         setIsActive(!isActive);
-                    }}>
-                    Menu
-                </div>
+                    }}></div>
             </div>
+
             <div ref={button} className={styles.containerButton}>
                 <Magnetic>
                     <div
-                        className={`${styles.button}`}
+                        className={`${styles.button} ${styles.button_animation2}`}
                         onClick={(e) => {
                             setIsActive(!isActive);
                         }}>
                         <div
-                            className={`${
-                                styles.burger
-                            } myRipple button_animation ${
+                            className={`${styles.burger}   ${
                                 isActive ? styles.burgerActive : ''
                             }`}></div>
                     </div>
                 </Magnetic>
             </div>
+
             <Nav />
         </>
     );

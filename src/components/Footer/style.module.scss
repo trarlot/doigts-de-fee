@@ -1,6 +1,5 @@
 .footer {
     width: 100%;
-    background: #3b3b3b;
     position: fixed;
     height: 450px;
     display: flex;
@@ -81,7 +80,7 @@
                     color: black;
                     text-decoration: none;
                     letter-spacing: -2px;
-                    font-family: 'Rouge Script';
+                    font-family: 'Rouge Script", serif';
                     margin: 0;
                 }
             }
@@ -93,18 +92,14 @@
         height: auto;
         pointer-events: none;
     }
-    #leafs1 {
-        width: 15vw;
-        right: 90%;
-        top: 50px;
-    }
+
     #leafs2 {
         width: 25vw;
-        right: 65%;
+        right: 70%;
         bottom: -10vw;
     }
     #leafs3 {
-        right: 32%;
+        left: 32%;
         bottom: -150px;
         width: 8vw;
     }

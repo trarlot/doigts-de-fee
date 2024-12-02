@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
-export default function index({ children, ratio = 0.55 }) {
+export default React.forwardRef(function index({ children, ratio = 0.5 }, ref) {
     const magnetic = useRef(null);
 
     useEffect(() => {
@@ -61,4 +61,4 @@ export default function index({ children, ratio = 0.55 }) {
             willChange: 'transform',
         },
     });
-}
+});

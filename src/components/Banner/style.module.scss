@@ -6,8 +6,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    position: relative;
     background-color: white;
+
     svg {
         width: 80%;
         max-width: 1200px;
@@ -44,7 +45,7 @@
         position: relative;
         z-index: 1;
 
-        width: 100%;
+        width: 60%;
         height: 100vh;
         overflow: hidden;
         .banner {
@@ -59,10 +60,12 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 70%;
+        position: relative;
+        z-index: 2;
+        width: 40%;
         height: 100%;
         background-color: $beige-light;
-        background-image: url('/assets/texture2.jpg');
+        background-image: url('/assets/texture3.jpg');
         background-size: cover;
         background-position: center;
 
@@ -76,7 +79,7 @@
             .title {
                 font-family: 'Bethany';
                 font-weight: 500;
-                font-size: 8vw;
+                font-size: 9vw;
                 padding: 0;
                 text-align: center;
                 top: 20%;
@@ -92,6 +95,7 @@
                 line-height: 2vw;
                 max-width: 400px;
                 text-align: center;
+                text-transform: uppercase;
                 margin: 0 auto 60px auto;
                 top: 40%;
             }

@@ -3,8 +3,10 @@ import Link from 'next/link';
 import styles from '../page.module.scss';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import stylesNav from '../../components/header/style.module.scss';
 import { useMenu } from '../../components/contexts/MenuContext';
 import Magnetic from '../../common/Magnetic';
+import stylesShutter from '../../common/Shutter/style.module.scss';
 
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -18,32 +20,42 @@ export const TransitionLink = ({
     ...props
 }) => {
     const router = useRouter();
-    const { isActive, setIsActive, titlename, setTitleName } = useMenu();
+    const { isActive, setIsActive, setTitleName } = useMenu();
 
     const handleTransition = async (e) => {
         e.preventDefault();
+        console.log(document.querySelector(`.${stylesNav.activeDot}`));
+        if (e.target.textContent === 'Galerie') {
+            document
+                .getElementsByClassName(`${stylesNav.activeDot}`)[0]
+                .classList.add(`${stylesNav.activeDotGalerie}`);
+        } else if (e.target.textContent === 'Accueil') {
+            document
+                .getElementsByClassName(`${stylesNav.activeDot}`)[0]
+                .classList.remove(`${stylesNav.activeDotGalerie}`);
+        }
         if (isActive) {
             setIsActive(false);
         }
         setTitleName(title);
-        const shutter = document.querySelector(`.${styles.shutter}`);
+        const shutter = document.querySelector(`.${stylesShutter.shutter}`);
         const body = document.querySelector('body');
         const titleContent = document.querySelector(
-            `.${styles.titleTransition}`,
+            `.${stylesShutter.titleTransition}`,
         );
 
-        shutter?.classList.add(`${styles.transition}`);
-        titleContent?.classList.add(`${styles.fade}`);
+        shutter?.classList.add(`${stylesShutter.transition}`);
+        titleContent?.classList.add(`${stylesShutter.fade}`);
         body.style.overflowY = 'hidden';
         await sleep(800);
         router.push(href);
         await sleep(200);
-        titleContent?.classList.remove(`${styles.fade}`);
+        titleContent?.classList.remove(`${stylesShutter.fade}`);
 
         await sleep(500);
 
         body.style.overflowY = 'unset';
-        shutter?.classList.remove(`${styles.transition}`);
+        shutter?.classList.remove(`${stylesShutter.transition}`);
     };
 
     // Ajout d'un useEffect pour gérer le nettoyage

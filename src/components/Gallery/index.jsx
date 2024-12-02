@@ -2,7 +2,7 @@ import '../../app/page.module.scss';
 import styles from './style.module.scss';
 import Image from 'next/image';
 import { useRef, useEffect } from 'react';
-import Button from '../Button';
+import Button from '../../common/Button';
 import Card from '../../common/Card';
 import Magnetic from '../../common/Magnetic';
 import gsap from 'gsap';
@@ -162,7 +162,11 @@ export default function Index() {
                             manucure. Découvrez chaque réalisation pour imaginer
                             le soin qui vous ressemble !
                         </p>
-                        <Button ref={svgButtonRef}>
+                        <Button
+                            transition={true}
+                            href="/pages/gallery"
+                            page="Gallery"
+                            ref={svgButtonRef}>
                             <Magnetic ratio={0.3}>
                                 <p className={styles.buttonText}>
                                     <span className={styles.word}>Galerie</span>

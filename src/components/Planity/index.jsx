@@ -2,7 +2,7 @@ import '../../app/page.module.scss';
 import styles from './style.module.scss';
 import Image from 'next/image';
 import { useRef, useEffect } from 'react';
-import Button from '../Button/index';
+import Button from '../../common/Button/index';
 import gsap from 'gsap';
 import Magnetic from '../../common/Magnetic';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -105,12 +105,13 @@ export default function Index() {
                             laissez-vous guider jusqu’à notre espace de
                             réservation.
                         </p>
-                        <Button ref={svgButtonRef}>
+                        <Button
+                            target={true}
+                            href="https://www.planity.com/doigts-de-fee-91700-sainte-genevieve-des-bois"
+                            ref={svgButtonRef}>
                             <Magnetic ratio={0.2}>
                                 <p className={styles.buttonText}>
-                                    <span className={styles.word}>
-                                        Réserver
-                                    </span>
+                                    <span className={styles.word}>Planity</span>
                                 </p>
                             </Magnetic>
                         </Button>

@@ -4,14 +4,14 @@ $pink: #ffbcdc;
 $beige-light: #ffd7af;
 $beige: #ffc692;
 $white: #faf9f6;
-$main-color: #ef7e60;
+$main-color: #f39076;
 $grey: #3b3b3b;
 @font-face {
     font-family: 'Bethany';
     src: url('../../public/assets/Bethany.ttf');
 }
 @font-face {
-    font-family: 'Rouge Script';
+    font-family: 'Rouge Script", serif';
     src: url('../../public/assets/RougeScript-Regular.ttf');
 }
 @font-face {
@@ -24,49 +24,14 @@ $grey: #3b3b3b;
     font-weight: bold;
     font-style: normal;
 }
-
+.body {
+    background-color: #2d2722;
+}
 .title {
     padding: 30px 0;
     margin: 0;
 }
-.shutter {
-    position: fixed;
-    width: 130vw;
-    height: 500vh;
-    background-color: $beige;
-    z-index: 99;
-    pointer-events: none;
-    top: -50%;
-    left: -150vw;
-    box-shadow: 0px 0px 62px -18px black;
-    transform: rotate(-45deg);
-    transition: 0.8s;
-}
-.titleTransition {
-    position: fixed;
-    width: 100%;
-    margin: 0;
-    pointer-events: none;
-    top: 40vh;
-    font-weight: 300;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    font-size: 200px;
-    font-family: 'Bethany';
-    z-index: 100;
-    opacity: 0;
-    transition: 0.3s;
-    transition-delay: 0.3s;
-}
 
-.transition {
-    left: 0px;
-    transform: rotate(0deg);
-}
-
-.fade {
-    opacity: 1;
-}
 .main {
     background-color: transparent;
     transition: 0.3s;
@@ -80,7 +45,7 @@ $grey: #3b3b3b;
     box-shadow: 0px 16px 15px 0px rgba(0, 0, 0, 0.2);
 
     .principal {
-        background-color: $white;
+        background-color: black;
         position: absolute;
         z-index: 9;
         width: 100%;
@@ -112,18 +77,5 @@ $grey: #3b3b3b;
         .line {
             width: 1200px;
         }
-    }
-    .shutter {
-        transform: rotate(-45deg);
-        width: 130vw;
-        height: 500vh;
-    }
-    .titleTransition {
-        top: 50vh;
-        font-size: 50px;
-    }
-    .transition {
-        left: 0px;
-        transform: rotate(0deg);
     }
 }

@@ -1,12 +1,34 @@
 import styles from './style.module.scss';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
-import Magnetic from '../../../common/Magnetic';
-
+import Card from '../../../common/Card';
+import { useMenu } from '../../contexts/MenuContext';
 import { TransitionLink } from '../../../app/utils/TransitionLink';
+import { useEffect, useRef, useState } from 'react';
+import Magnetic from '../../../common/Magnetic';
 
 export default function index() {
     const path = usePathname();
+    const { isActive, setIsActive } = useMenu();
+    const cardRef = useRef(null);
+
+    const handleClickOutside = (event) => {
+        if (cardRef.current && !cardRef.current.contains(event.target)) {
+            setIsActive(false);
+        }
+    };
+
+    useEffect(() => {
+        if (isActive) {
+            document.addEventListener('click', handleClickOutside);
+        } else {
+            document.removeEventListener('click', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [isActive]);
 
     const navItems = [
         {
@@ -22,35 +44,34 @@ export default function index() {
     return (
         <div className={styles.menu}>
             <div id="container" className={styles.container}>
-                <Image
-                    className={styles.logo}
-                    src="/svg/logo2.svg"
-                    width={120}
-                    height={100}
-                    alt="logo"
-                    priority
-                />
-                {navItems.map((data) => {
-                    return (
-                        <Magnetic key={data.href} ratio={0.5}>
-                            <div className={styles.linkContainer}>
-                                <Image
-                                    className={styles.buttonbg}
-                                    src="/svg/buttonbg.svg"
-                                    width={140}
-                                    height={70}
-                                    alt="button background"
-                                />
-                                <TransitionLink
-                                    magnetic={true}
-                                    href={data.href}
-                                    title={data.title}>
-                                    {data.title}
-                                </TransitionLink>
-                            </div>
-                        </Magnetic>
-                    );
-                })}
+                <Card
+                    image="/assets/tropicalbg.png"
+                    id={styles.card}
+                    ref={cardRef}
+                    onClick={() => setIsActive(!isActive)}>
+                    <div className={styles.links}>
+                        {navItems.map((data) => {
+                            return (
+                                <div
+                                    key={data.href}
+                                    className={styles.linkContainer}>
+                                    <Image
+                                        className={styles.buttonbg}
+                                        width={100}
+                                        height={100}
+                                        alt={'ongles doigts de fée'}
+                                        src={'/svg/buttonbg.svg'}
+                                    />
+                                    <TransitionLink
+                                        href={data.href}
+                                        title={data.title}>
+                                        {data.title}
+                                    </TransitionLink>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </Card>
             </div>
         </div>
     );

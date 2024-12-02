@@ -26,15 +26,6 @@ export default function Home() {
         AOS.init({
             duration: 500,
         });
-
-        // if (isLoading) {
-        //     document.body.style.cursor = 'wait';
-        //     setTimeout(() => {
-        //         document.body.style.cursor = 'default';
-        //         setIsLoading(false);
-        //         window.scrollTo(0, 0);
-        //     }, 4500);
-        // }
     }, []);
     useEffect(() => {
         let path = document.querySelector('#line path');
@@ -58,11 +49,8 @@ export default function Home() {
             <main data-main id="main" className={styles.main}>
                 <div id="principal" className={styles.principal}></div>
                 <Line className={styles.line} />
-                {/* <AnimatePresence mode="wait">
-                {isLoading && <Preloader />}
-                </AnimatePresence> */}
+
                 <Banner />
-                <Intro />
                 <Planity />
                 <Gallery />
                 <Salon />

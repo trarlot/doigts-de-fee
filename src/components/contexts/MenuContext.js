@@ -5,7 +5,7 @@ const MenuContext = createContext();
 
 const MenuProvider = ({ children }) => {
     const [isActive, setIsActive] = useState(false);
-    const [titleName, setTitleName] = useState('');
+    const [titleName, setTitleName] = useState('Doigts de fée');
     return (
         <MenuContext.Provider
             value={{ isActive, setIsActive, titleName, setTitleName }}>

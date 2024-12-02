@@ -3,7 +3,7 @@
     position: fixed;
     right: 0;
     height: 100vh;
-    background-color: $grey;
+    background-color: #2d2722;
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -12,38 +12,92 @@
     .container {
         display: flex;
         flex-direction: column;
-        gap: 6vh;
         align-items: center;
         padding: 125px 0 0 0;
         width: 370px;
         opacity: 0%;
         transition: 0.8s;
-        .logo {
-            margin-bottom: 25px;
-        }
-        .linkContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            a,
-            a:visited {
-                text-decoration: unset;
-                color: rgb(255, 255, 255);
-                font-size: 40px;
-                font-weight: 900;
+        gap: 50px;
+        #card {
+            transform: rotate(5deg);
+            // .title {
+            //     font-size: 100px;
+            //     width: 100%;
+            //     font-weight: 400;
+            //     text-align: center;
+            //     font-family: 'Bethany';
+            //     color: rgb(0, 0, 0);
+            //     margin: 20px 0;
+            //     padding: 10px 10px;
+            //     background-image: url('/svg/buttonbg.svg');
+            //     background-size: contain;
+            //     background-position: center;
+            //     background-repeat: no-repeat;
+            // }
+            .links {
+                width: 100%;
+                display: flex;
                 position: relative;
-                font-family: 'Bethany';
-            }
-            &:hover {
-                cursor: pointer;
-            }
+                align-items: center;
+                justify-content: space-between;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    height: 150%;
+                    margin: auto;
+                    right: 48%;
+                    border-right: 1px solid #6e6e6e;
+                }
+                .linkContainer {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    a,
+                    a:visited {
+                        text-decoration: unset;
+                        color: rgb(0, 0, 0);
+                        font-size: 45px;
+                        font-weight: 400;
+                        width: 100%;
+                        text-align: center;
+                        position: relative;
+                        -transform: uppercase;
+                        font-family: 'Bethany';
+                        padding: 0;
+                        position: relative;
+                        z-index: 9;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                    }
 
-            .buttonbg {
+                    .buttonbg {
+                        position: absolute;
+                        height: auto;
+                        transition: 0.3s;
+                        transform: rotate(8deg);
+                        z-index: 1;
+                        scale: 0.1;
+                        opacity: 0;
+                    }
+                    &:hover .buttonbg {
+                        scale: 1 !important;
+                        opacity: 1;
+                    }
+                }
+            }
+            .plant {
                 position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                bottom: -45px;
+                right: -16px;
+                transform: rotate(-65deg);
+            }
+            .shape {
+                position: absolute;
+                bottom: -120px;
+                right: -21px;
             }
         }
     }

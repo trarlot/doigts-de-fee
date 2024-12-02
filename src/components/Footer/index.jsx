@@ -65,15 +65,7 @@ export default function Index() {
                     </Magnetic>
                 </div>
             </Card>
-            <Image
-                ref={(el) => (leafsRef.current[0] = el)}
-                className={styles.leafs}
-                id={styles.leafs1}
-                src={'/svg/leafs1.svg'}
-                alt={'footer'}
-                width={350}
-                height={350}
-            />
+
             <Image
                 ref={(el) => (leafsRef.current[1] = el)}
                 className={styles.leafs}
