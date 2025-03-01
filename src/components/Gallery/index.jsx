@@ -269,7 +269,8 @@ export default function Index({ images }) {
                             id={styles.card2}
                         />
                         <Card
-                            image={images[0]?.data.nail.url}
+                            // image={images[0]?.data.nail.url}
+                            image={'/assets/ongles-vert-noel.jpg'}
                             id={styles.card3}
                         />
                     </div>

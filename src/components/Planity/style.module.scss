@@ -78,7 +78,7 @@
     .container_image {
         position: relative;
         z-index: 2;
-        width: 100%;
+        width: 50%;
         height: 550px;
         display: flex;
         justify-content: center;
@@ -120,6 +120,9 @@
             width: 100%;
             gap: 50px;
             padding: 150px 0;
+            .container_image {
+                width: 100%;
+            }
             .shape4 {
                 top: 75px;
                 right: 20%;
