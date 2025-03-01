@@ -14,14 +14,10 @@ import Line from '@/svg/line.svg';
 import { createClient } from '../prismicio';
 
 import Banner from '../components/Banner/index';
-import Intro from '../components/Intro2/index';
 import Salon from '../components/Salon/index';
-import stylesSalon from '../components/Salon/style.module.scss';
 import Planity from '../components/Planity/index';
 import styles from './page.module.scss';
 import Footer from '../components/Footer/index';
-import stylesFooter from '../components/Footer/style.module.scss';
-import gsap from 'gsap';
 
 import 'aos/dist/aos.css';
 import AOS from 'aos';
