@@ -7,7 +7,8 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: white;
+    background-color: #2d2722;
+    padding-top: 60px;
 
     svg {
         width: 80%;
@@ -45,14 +46,15 @@
         position: relative;
         z-index: 1;
 
-        width: 60%;
+        width: 120%;
+        max-width: 900px;
         height: 100vh;
         overflow: hidden;
         .banner {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 65%;
+            object-position: center 80%;
         }
     }
     .content {
@@ -62,7 +64,7 @@
         justify-content: center;
         position: relative;
         z-index: 2;
-        width: 40%;
+        width: 100%;
         height: 100%;
         background-color: $beige-light;
         background-image: url('/assets/texture3.jpg');
@@ -75,11 +77,13 @@
             flex-direction: column;
             align-items: center;
             gap: 20px;
-
+            padding: 0 20px;
+            box-sizing: border-box;
             .title {
                 font-family: 'Bethany';
                 font-weight: 500;
                 font-size: 9vw;
+                line-height: 9vw;
                 padding: 0;
                 text-align: center;
                 top: 20%;
@@ -96,7 +100,7 @@
                 max-width: 400px;
                 text-align: center;
                 text-transform: uppercase;
-                margin: 0 auto 60px auto;
+                margin: 30px auto 30px auto;
                 top: 40%;
             }
 
@@ -121,5 +125,51 @@
     }
     to {
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        .bannerContainer {
+            display: none;
+        }
+        .content {
+            width: 100%;
+            background-image: url('/assets/brown_nails.jpg');
+            background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.7),
+                    rgba(0, 0, 0, 0.7)
+                ),
+                url('/assets/brown_nails.jpg');
+            .text {
+                color: white;
+                .title {
+                    font-size: 18vw;
+                    color: $beige-light;
+                }
+                .subtitle {
+                    color: $beige-light;
+                    font-size: 3vw;
+                    line-height: 3vw;
+                    max-width: 90%;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 799px) {
+    .container {
+        .content {
+            .text {
+                .title {
+                    font-size: 120px;
+                    line-height: 120px;
+                }
+                .subtitle {
+                    font-size: 20px;
+                    line-height: 25px;
+                }
+            }
+        }
     }
 }

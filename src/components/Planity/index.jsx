@@ -21,72 +21,149 @@ export default function Index() {
 
     useEffect(() => {
         let ctx = gsap.context(() => {
-            gsap.fromTo(
-                titleRef.current,
-                { opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.5,
-                    scrollTrigger: {
-                        trigger: titleRef.current,
-                        start: 'bottom bottom',
-                        toggleActions: 'play none play reverse',
-                    },
-                },
-            );
-            gsap.fromTo(
-                descriptionRef.current,
-                { opacity: 0 },
-                {
-                    opacity: 1,
-                    duration: 0.5,
-                    scrollTrigger: {
-                        trigger: descriptionRef.current,
-                        start: 'bottom bottom',
-                        toggleActions: 'play none play reverse',
-                    },
-                },
-            );
+            const mm = gsap.matchMedia();
 
-            gsap.fromTo(
-                [svgButtonRef.current, `.${styles.word}`],
-                { opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.3,
-                    stagger: 0.2,
-                    scrollTrigger: {
-                        trigger: `.${styles.buttonText}`,
-                        start: 'bottom bottom',
-                        toggleActions: 'play none play reverse',
+            mm.add('(min-width: 1200px)', () => {
+                // Original animations for screens wider than 800px
+                gsap.fromTo(
+                    titleRef.current,
+                    { opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.5,
+                        scrollTrigger: {
+                            trigger: titleRef.current,
+                            start: 'bottom bottom',
+                            toggleActions: 'play none play reverse',
+                        },
                     },
-                },
-            );
-
-            gsap.fromTo(
-                [imageRef.current, plant3Ref.current, shape4Ref.current],
-                { opacity: 0 },
-                {
-                    opacity: 1,
-                    duration: 0.5,
-                    scrollTrigger: {
-                        trigger: titleRef.current,
-                        start: 'bottom bottom',
-                        toggleActions: 'play none play reverse',
+                );
+                gsap.fromTo(
+                    descriptionRef.current,
+                    { opacity: 0 },
+                    {
+                        opacity: 1,
+                        duration: 0.5,
+                        scrollTrigger: {
+                            trigger: descriptionRef.current,
+                            start: 'bottom bottom',
+                            toggleActions: 'play none play reverse',
+                        },
                     },
-                },
-            );
+                );
 
-            gsap.to(plant4Ref.current, {
-                y: 340,
-                scrollTrigger: {
-                    trigger: `.${styles.duo}`,
-                    start: 'bottom bottom',
-                    end: 'bottom top',
-                    scrub: 1,
-                },
+                gsap.fromTo(
+                    [svgButtonRef.current, `.${styles.word}`],
+                    { opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.3,
+                        stagger: 0.2,
+                        scrollTrigger: {
+                            trigger: `.${styles.buttonText}`,
+                            start: 'bottom bottom',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
+
+                gsap.fromTo(
+                    [imageRef.current, plant3Ref.current, shape4Ref.current],
+                    { opacity: 0 },
+                    {
+                        opacity: 1,
+                        duration: 0.5,
+                        scrollTrigger: {
+                            trigger: titleRef.current,
+                            start: 'bottom bottom',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
+
+                gsap.to(plant4Ref.current, {
+                    y: 340,
+                    scrollTrigger: {
+                        trigger: `.${styles.duo}`,
+                        start: 'bottom bottom',
+                        end: 'bottom top',
+                        scrub: 1,
+                    },
+                });
+            });
+
+            mm.add('(max-width: 1199px)', () => {
+                // Variant animations for screens narrower than 800px
+                gsap.fromTo(
+                    titleRef.current,
+                    { opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.5,
+                        scrollTrigger: {
+                            trigger: titleRef.current,
+                            start: 'bottom bottom',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
+                gsap.fromTo(
+                    descriptionRef.current,
+                    { opacity: 0 },
+                    {
+                        opacity: 1,
+                        duration: 0.5,
+                        scrollTrigger: {
+                            trigger: descriptionRef.current,
+                            start: 'bottom bottom',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
+
+                gsap.fromTo(
+                    [svgButtonRef.current, `.${styles.word}`],
+                    { opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.3,
+                        stagger: 0.2,
+                        scrollTrigger: {
+                            trigger: `.${styles.buttonText}`,
+                            start: 'bottom bottom',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
+
+                gsap.fromTo(
+                    [imageRef.current, plant3Ref.current, shape4Ref.current],
+                    { opacity: 0 },
+                    {
+                        opacity: 1,
+                        duration: 0.5,
+
+                        scrollTrigger: {
+                            trigger: imageRef.current,
+                            start: 'center bottom',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
+
+                gsap.to(plant4Ref.current, {
+                    y: 340,
+                    scrollTrigger: {
+                        trigger: `.${styles.duo}`,
+                        start: 'bottom bottom',
+                        end: 'bottom top',
+                        scrub: 1,
+                    },
+                });
             });
         });
 
@@ -102,7 +179,7 @@ export default function Index() {
                         </h2>
                         <p ref={descriptionRef}>
                             Pour explorer nos soins et consulter nos tarifs,
-                            laissez-vous guider jusqu’à notre espace de
+                            laissez-vous guider jusqu'à notre espace de
                             réservation.
                         </p>
                         <Button

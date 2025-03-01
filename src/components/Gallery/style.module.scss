@@ -53,6 +53,7 @@
                 font-weight: 500;
                 font-family: 'Rouge Script", serif';
                 line-height: 75px;
+                padding: 0 20px;
                 margin: 0;
             }
             p {
@@ -62,6 +63,8 @@
                 font-size: 28px;
                 line-height: 35px;
                 font-weight: 500;
+                padding: 0 20px;
+
                 font-family: 'Luimp';
                 margin: 0;
             }
@@ -80,10 +83,122 @@
         position: absolute;
         bottom: -130px;
         right: 0;
+        z-index: 5;
     }
     #plant5 {
         position: absolute;
         bottom: -170px;
         right: -50px;
+        z-index: 5;
+    }
+}
+@media (max-width: 1200px) {
+    .duo {
+        .container {
+            flex-direction: column;
+            padding-top: 150px;
+            gap: 100px;
+            .photos {
+                flex-direction: row;
+                #card1 {
+                    transform: translateX(20px) rotate(-20deg);
+                    margin-bottom: -120px;
+                }
+                #card2 {
+                    transform: rotate(0deg);
+                    margin-bottom: -120px;
+                    z-index: 2;
+                }
+                #card3 {
+                    transform: translateX(-20px) rotate(20deg);
+                    img {
+                        object-position: bottom;
+                    }
+                }
+            }
+            .text {
+                width: 80%;
+                align-items: center;
+                gap: 50px;
+                h2 {
+                    font-size: 60px;
+                    line-height: 50px;
+                    text-align: center;
+                }
+                p {
+                    font-size: 20px;
+                    line-height: 30px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 799px) {
+    .duo {
+        min-height: unset;
+        padding: 50px 0;
+        .container {
+            gap: 75px;
+            padding-top: 100px;
+            .text {
+                gap: 25px;
+                h2 {
+                    width: 100%;
+                    font-size: 60px;
+                    line-height: 50px;
+                }
+                p {
+                    font-size: 20px;
+                    line-height: 25px;
+                }
+            }
+        }
+        #shape6 {
+            width: 200px;
+            right: -25px;
+        }
+        #plant5 {
+            width: 250px;
+            height: 250px;
+            bottom: -100px;
+        }
+    }
+}
+@media (max-width: 600px) {
+    .duo {
+        .container {
+            gap: 50px;
+
+            .photos {
+                flex-direction: row;
+                #card1 {
+                    transform: translateX(20px) rotate(-10deg);
+                    margin-bottom: -120px;
+                }
+                #card2 {
+                    transform: rotate(0deg);
+                    margin-bottom: -120px;
+                    z-index: 2;
+                }
+                #card3 {
+                    transform: translateX(-20px) rotate(10deg);
+                    img {
+                        object-position: bottom;
+                    }
+                }
+            }
+            .text {
+                gap: 25px;
+                h2 {
+                    font-size: 40px;
+                    line-height: 30px;
+                }
+                p {
+                    font-size: 18px;
+                    line-height: 25px;
+                }
+            }
+        }
     }
 }

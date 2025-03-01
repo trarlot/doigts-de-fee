@@ -13,8 +13,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 125px 0 0 0;
         width: 370px;
+        margin-top: 200px;
         opacity: 0%;
         transition: 0.8s;
         gap: 50px;
@@ -58,34 +58,35 @@
                     a:visited {
                         text-decoration: unset;
                         color: rgb(0, 0, 0);
-                        font-size: 45px;
+                        font-size: 35px;
                         font-weight: 400;
                         width: 100%;
                         text-align: center;
                         position: relative;
                         -transform: uppercase;
-                        font-family: 'Bethany';
+                        font-family: 'Luimp';
                         padding: 0;
                         position: relative;
+                        transition: 0.3s;
                         z-index: 9;
-                    }
-                    &:hover {
-                        cursor: pointer;
+                        &:hover {
+                            color: $main-color;
+                        }
                     }
 
-                    .buttonbg {
-                        position: absolute;
-                        height: auto;
-                        transition: 0.3s;
-                        transform: rotate(8deg);
-                        z-index: 1;
-                        scale: 0.1;
-                        opacity: 0;
-                    }
-                    &:hover .buttonbg {
-                        scale: 1 !important;
-                        opacity: 1;
-                    }
+                    // .buttonbg {
+                    //     position: absolute;
+                    //     height: auto;
+                    //     transition: 0.3s;
+                    //     transform: rotate(8deg);
+                    //     z-index: 1;
+                    //     scale: 0.1;
+                    //     opacity: 0;
+                    // }
+                    // &:hover .buttonbg {
+                    //     scale: 1 !important;
+                    //     opacity: 1;
+                    // }
                 }
             }
             .plant {

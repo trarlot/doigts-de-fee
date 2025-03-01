@@ -5,7 +5,6 @@ import Card from '../../../common/Card';
 import { useMenu } from '../../contexts/MenuContext';
 import { TransitionLink } from '../../../app/utils/TransitionLink';
 import { useEffect, useRef, useState } from 'react';
-import Magnetic from '../../../common/Magnetic';
 
 export default function index() {
     const path = usePathname();
@@ -55,13 +54,13 @@ export default function index() {
                                 <div
                                     key={data.href}
                                     className={styles.linkContainer}>
-                                    <Image
+                                    {/* <Image
                                         className={styles.buttonbg}
                                         width={100}
                                         height={100}
                                         alt={'ongles doigts de fée'}
                                         src={'/svg/buttonbg.svg'}
-                                    />
+                                    /> */}
                                     <TransitionLink
                                         href={data.href}
                                         title={data.title}>

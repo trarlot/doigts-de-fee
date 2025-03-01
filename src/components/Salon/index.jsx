@@ -23,7 +23,8 @@ export default function Index() {
                     scrollTrigger: {
                         trigger: '[data-salon]',
                         start: 'center-=20% bottom',
-                        toggleActions: 'restart none play reverse',
+                        end: 'bottom-=10% bottom',
+                        scrub: 1,
                     },
                 },
             );

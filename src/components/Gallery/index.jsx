@@ -1,7 +1,7 @@
 import '../../app/page.module.scss';
 import styles from './style.module.scss';
 import Image from 'next/image';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Button from '../../common/Button';
 import Card from '../../common/Card';
 import Magnetic from '../../common/Magnetic';
@@ -10,70 +10,190 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Index() {
+export default function Index({ images }) {
     const titleRef = useRef(null);
     const descriptionRef = useRef(null);
     const svgButtonRef = useRef(null);
     const shape6Ref = useRef(null);
     const plant5Ref = useRef(null);
+    console.log(images[0]?.data.nail.url);
     useEffect(() => {
         let ctx = gsap.context(() => {
-            gsap.fromTo(
-                '#' + styles.card1,
-                {
-                    opacity: 0,
-                    y: 100,
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.5,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: '#' + styles.card1,
-                        start: 'center bottom',
-                        toggleActions: 'play none play reverse',
+            const mm = gsap.matchMedia();
+            mm.add('(min-width: 1200px)', () => {
+                gsap.fromTo(
+                    '#' + styles.card1,
+                    {
+                        opacity: 0,
+                        y: 100,
                     },
-                },
-            );
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.5,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: '#' + styles.card1,
+                            start: 'center bottom',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
 
-            gsap.fromTo(
-                '#' + styles.card2,
-                {
-                    opacity: 0,
-                    y: 100,
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.5,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: '#' + styles.card2,
-                        start: 'center bottom',
-                        toggleActions: 'play none play reverse',
+                gsap.fromTo(
+                    '#' + styles.card2,
+                    {
+                        opacity: 0,
+                        y: 100,
                     },
-                },
-            );
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.5,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: '#' + styles.card2,
+                            start: 'center bottom',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
 
-            gsap.fromTo(
-                '#' + styles.card3,
-                {
-                    opacity: 0,
-                    y: 100,
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.5,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: '#' + styles.card3,
-                        start: 'center bottom',
-                        toggleActions: 'play none play reverse',
+                gsap.fromTo(
+                    '#' + styles.card3,
+                    {
+                        opacity: 0,
+                        y: 100,
                     },
-                },
-            );
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.5,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: '#' + styles.card3,
+                            start: 'center bottom',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
+            });
+            mm.add('(max-width: 1199px) and (min-width: 600px)', () => {
+                gsap.fromTo(
+                    '#' + styles.card1,
+                    {
+                        opacity: 0,
+                        y: 100,
+                    },
+                    {
+                        opacity: 1,
+                        y: 20,
+                        duration: 0.5,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: '#' + styles.card1,
+                            start: 'center bottom',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
+
+                gsap.fromTo(
+                    '#' + styles.card2,
+                    {
+                        opacity: 0,
+                        y: 100,
+                    },
+                    {
+                        opacity: 1,
+                        y: -20,
+                        duration: 0.5,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: '#' + styles.card2,
+                            start: 'center bottom',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
+
+                gsap.fromTo(
+                    '#' + styles.card3,
+                    {
+                        opacity: 0,
+                        y: 100,
+                    },
+                    {
+                        opacity: 1,
+                        y: 20,
+                        duration: 0.5,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: '#' + styles.card3,
+                            start: 'center bottom',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
+            });
+            mm.add('(max-width: 599px)', () => {
+                gsap.fromTo(
+                    '#' + styles.card1,
+                    {
+                        opacity: 0,
+                        y: 100,
+                    },
+                    {
+                        opacity: 1,
+                        y: 10,
+                        duration: 0.5,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: '#' + styles.card1,
+                            start: 'top center+=25%',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
+
+                gsap.fromTo(
+                    '#' + styles.card2,
+                    {
+                        opacity: 0,
+                        y: 100,
+                    },
+                    {
+                        opacity: 1,
+                        y: -10,
+                        duration: 0.5,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: '#' + styles.card2,
+                            start: 'top center+=25%',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
+
+                gsap.fromTo(
+                    '#' + styles.card3,
+                    {
+                        opacity: 0,
+                        y: 100,
+                    },
+                    {
+                        opacity: 1,
+                        y: 10,
+                        duration: 0.5,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: '#' + styles.card3,
+                            start: 'top center+=25%',
+                            toggleActions: 'play none play reverse',
+                        },
+                    },
+                );
+            });
             gsap.fromTo(
                 titleRef.current,
                 { opacity: 0 },
@@ -149,7 +269,7 @@ export default function Index() {
                             id={styles.card2}
                         />
                         <Card
-                            image={'/assets/brown_nails.jpg'}
+                            image={images[0]?.data.nail.url}
                             id={styles.card3}
                         />
                     </div>

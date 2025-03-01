@@ -4,18 +4,20 @@
     position: absolute;
     display: flex;
     z-index: 50;
-    top: 0;
+    top: 60px;
     color: white;
-    padding: 25px 50px;
+    padding: 25px 75px;
     justify-content: space-between;
-    width: 40%;
+    width: 100%;
     font-weight: 300;
     align-self: flex-end;
     box-sizing: border-box;
     align-items: center;
     margin: 0 auto;
     img {
-        filter: invert(1);
+        filter: invert(96%) sepia(6%) saturate(3926%) hue-rotate(307deg)
+            brightness(105%) contrast(101%);
+
         &:hover {
             cursor: pointer;
         }
@@ -42,7 +44,7 @@
             a:visited {
                 text-decoration: unset;
                 color: rgb(0, 0, 0);
-                font-size: 26px;
+                font-size: 24px;
                 font-weight: 300;
                 text-transform: uppercase;
                 position: relative;
@@ -74,8 +76,8 @@
     position: fixed;
     display: flex;
     align-items: center;
-    margin: 30px;
-    right: 0;
+    top: 85px;
+    right: 30px;
     height: 65px;
     z-index: 51;
     transform: scale(0);
@@ -173,6 +175,30 @@
         opacity: 0;
     }
 }
+@media screen and (max-width: 1200px) {
+    .header {
+        width: 100%;
+        img {
+            filter: invert(96%) sepia(6%) saturate(3926%) hue-rotate(307deg)
+                brightness(105%) contrast(101%);
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .header {
+        .nav {
+            .linkContainer {
+                a,
+                a:visited {
+                    color: $beige-light;
+                }
+            }
+            .activeDot {
+                background-color: $beige-light;
+            }
+        }
+    }
+}
 @media screen and (min-width: 800px) {
     .header {
         .menu {
@@ -182,17 +208,20 @@
 }
 @media screen and (max-width: 800px) {
     .header {
-        padding: 15px 30px;
+        padding-left: 30px;
         .logo {
-            max-width: 80px;
+            max-width: 100px;
         }
         .nav {
             display: none;
         }
     }
     .containerButton {
-        width: 65px;
-        height: 65px;
+        transform: scale(1) !important;
+        .button {
+            width: 70px;
+            height: 70px;
+        }
     }
 }
 @media screen and (max-width: 450px) {

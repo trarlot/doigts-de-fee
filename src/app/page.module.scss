@@ -33,17 +33,11 @@ $grey: #3b3b3b;
 }
 
 .main {
-    background-color: transparent;
-    transition: 0.3s;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     overflow: hidden;
-    margin-bottom: 450px;
-    box-shadow: 0px 16px 15px 0px rgba(0, 0, 0, 0.2);
-
+    background-color: transparent;
+    position: relative;
+    transition: 0.3s;
+    width: 100%;
     .principal {
         background-color: black;
         position: absolute;
@@ -55,19 +49,29 @@ $grey: #3b3b3b;
         position: absolute;
         transition: 0.5s;
     }
-    .line {
-        overflow: hidden;
-        width: 1950px;
-        top: 500px;
-        margin: 0 auto;
-        position: absolute;
-        pointer-events: none;
-        z-index: 1;
+    .container {
+        background-color: transparent;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
 
-        path {
-            stroke: $main-color !important;
-            width: 100%;
-            z-index: 0;
+        .line {
+            overflow: hidden;
+            width: 1950px;
+            top: 500px;
+            margin: 0 auto;
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            will-change: transform;
+
+            path {
+                stroke: $main-color !important;
+                width: 100%;
+                z-index: 0;
+            }
         }
     }
 }

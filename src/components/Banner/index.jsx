@@ -28,7 +28,7 @@ export default function Index() {
     }, []);
 
     return (
-        <section>
+        <>
             <div ref={containerRef} className={styles.container}>
                 <div className={styles.bannerContainer}>
                     <Image
@@ -57,6 +57,6 @@ export default function Index() {
                     </div>
                 </div>
             </div>
-        </section>
+        </>
     );
 }

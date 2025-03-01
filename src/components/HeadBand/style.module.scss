@@ -2,8 +2,8 @@
 
 .headBand {
     width: 100%;
-    height: 40px;
-    background-color: #000000;
+    height: 60px;
+    background-color: #2d2722;
     position: fixed;
     top: 0;
     left: 0;
@@ -15,18 +15,17 @@
     box-sizing: border-box;
     gap: 20px;
     .book {
-        font-size: 18px;
+        font-size: 20px;
         font-family: 'Luimp';
         font-weight: 300;
         color: $beige-light;
     }
     .planity {
         height: auto;
-        padding: 3px 10px;
+        padding: 10px 10px;
         border-radius: 4px;
         background-color: $beige-light;
         text-decoration: none;
-        font-size: 20px;
         font-family: 'Luimp';
         font-weight: 300;
         display: flex;

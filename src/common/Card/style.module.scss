@@ -1,3 +1,8 @@
+.important {
+    width: 320px !important;
+    height: 410px !important;
+    padding: 30px 35px !important;
+}
 .card {
     width: 320px;
     height: 410px;
@@ -20,5 +25,26 @@
             object-fit: cover;
             object-position: center;
         }
+    }
+}
+@media (max-width: 1200px) {
+    .card {
+        width: 250px;
+        height: 300px;
+        padding: 25px;
+    }
+}
+@media (max-width: 799px) {
+    .card {
+        width: 175px;
+        height: 215px;
+        padding: 15px;
+    }
+}
+@media (max-width: 600px) {
+    .card {
+        width: 140px;
+        height: 165px;
+        padding: 13px;
     }
 }

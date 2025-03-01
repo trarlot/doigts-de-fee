@@ -9,7 +9,10 @@ const Card = forwardRef(({ image, id, children }, ref) => {
 
     return (
         <>
-            <div id={id} className={styles.card} ref={ref}>
+            <div
+                id={id}
+                className={`${styles.card} ${image ? styles.important : ''}`}
+                ref={ref}>
                 {image && (
                     <div className={styles.container}>
                         <Image

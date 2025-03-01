@@ -1,5 +1,5 @@
 'use client';
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef, useEffect } from 'react';
 import styles from './style.module.scss';
 import Nav from './nav/index';
 import Image from 'next/image';
@@ -23,33 +23,34 @@ export default function index() {
         },
     ];
     const button = useRef(null);
-    const planity = useRef(null);
     const { isActive, setIsActive } = useMenu();
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
             gsap.registerPlugin(ScrollTrigger);
-            gsap.to([button.current, planity.current], {
-                scrollTrigger: {
-                    trigger: document.documentElement,
-                    start: 0,
-                    end: 500,
+            gsap.matchMedia().add('(min-width: 800px)', () => {
+                gsap.to(button.current, {
+                    scrollTrigger: {
+                        trigger: document.documentElement,
+                        start: 0,
+                        end: 500,
 
-                    onLeave: () => {
-                        gsap.to(button.current, {
-                            scale: 1,
-                            duration: 0.3,
-                            ease: 'power1.out',
-                        });
+                        onLeave: () => {
+                            gsap.to(button.current, {
+                                scale: 1,
+                                duration: 0.3,
+                                ease: 'power1.out',
+                            });
+                        },
+                        onEnterBack: () => {
+                            gsap.to(
+                                button.current,
+                                { scale: 0, duration: 0.3, ease: 'power1.out' },
+                                setIsActive(false),
+                            );
+                        },
                     },
-                    onEnterBack: () => {
-                        gsap.to(
-                            button.current,
-                            { scale: 0, duration: 0.3, ease: 'power1.out' },
-                            setIsActive(false),
-                        );
-                    },
-                },
+                });
             });
 
             return () => ctx.revert(); // Cleanup
@@ -70,17 +71,15 @@ export default function index() {
                 menu.style.color = 'black';
                 origin - window.innerHeight < 500
                     ? (main.style.transform =
-                          'rotate(-10deg) translate(-250px, -150px)')
+                          'rotate(-10deg) translate(-300px, -150px)')
                     : (main.style.transform =
-                          'rotate(-10deg) translate(-250px, 0px)');
+                          'rotate(-10deg) translate(-300px, 0px)');
                 main.style.transformOrigin = '100vw ' + origin + 'px';
-                main.classList.add('displayMenu');
                 principal.style.opacity = '60%';
                 container.style.opacity = '100%';
             } else {
                 body.style.overflowY = 'unset';
                 menu.style.color = 'white';
-                main.classList.remove('displayMenu');
                 main.style.transform = 'unset';
                 principal.style.opacity = '0%';
                 container.style.opacity = '0%';
@@ -88,29 +87,15 @@ export default function index() {
         }
     }, [isActive]);
 
-    const handleOnClick = (e) => {
-        const rippleElement = e.currentTarget.querySelector('.myRipple');
-        const rippleDiv = document.createElement('div');
-        rippleDiv.classList.add(`${styles.ripple}`);
-        if (rippleElement) {
-            rippleElement.insertAdjacentElement('beforeBegin', rippleDiv);
-            setTimeout(function () {
-                rippleDiv.parentElement.removeChild(rippleDiv);
-            }, 900);
-        } else {
-            console.error('rippleElement is null');
-        }
-    };
-
     return (
         <>
             <div className={styles.header}>
                 <TransitionLink href="/" title="Accueil">
                     <Image
                         className={styles.logo}
-                        src="/svg/logo2.svg"
+                        src="/svg/logoblack.svg"
                         width={110}
-                        height={90}
+                        height={80}
                         alt="logo"
                         priority
                     />

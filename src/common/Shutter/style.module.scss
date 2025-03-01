@@ -23,6 +23,7 @@
     color: $beige-light;
     text-align: center;
     font-size: 200px;
+    line-height: 275px;
     font-family: 'Bethany';
     z-index: 100;
     opacity: 0;
@@ -45,8 +46,7 @@
         height: 500vh;
     }
     .titleTransition {
-        top: 50vh;
-        font-size: 50px;
+        font-size: 20vw;
     }
     .transition {
         left: 0px;

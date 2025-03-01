@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Title from '@/svg/title.svg';
 import styles from './style.module.scss';

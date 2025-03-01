@@ -1,30 +1,23 @@
-'use client';
-import { Inter } from 'next/font/google';
-import styles from './page.module.scss';
-import HeadBand from '../components/HeadBand';
+import { MenuProvider } from '../components/contexts/MenuContext';
 import './globals.css';
 import Header from '../components/header/index';
-import { MenuProvider, useMenu } from '../components/contexts/MenuContext';
 import Shutter from '../common/Shutter';
-const inter = Inter({ subsets: ['latin'] });
+import styles from './page.module.scss'; // Assurez-vous d'importer vos styles
+import HeadBand from '../components/HeadBand/index';
+import React from 'react';
 
-function RootLayoutContent({ children }) {
-    return (
-        <html lang="en">
-            <body className={styles.body}>
-                <Shutter />
-                <HeadBand />
-                <Header />
-                {children}
-            </body>
-        </html>
-    );
-}
-
-export default function RootLayout({ children }) {
+export default function Layout({ children }) {
     return (
         <MenuProvider>
-            <RootLayoutContent>{children}</RootLayoutContent>
+            <html lang="en" suppressHydrationWarning>
+                <body className={styles.body}>
+                    <HeadBand />
+
+                    <Shutter />
+                    <Header />
+                    {children}
+                </body>
+            </html>
         </MenuProvider>
     );
 }

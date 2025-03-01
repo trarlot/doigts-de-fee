@@ -1,0 +1,18 @@
+{
+  "format": "custom",
+  "id": "test",
+  "label": "test",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "text": {
+        "type": "Text",
+        "config": {
+          "label": "text",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
